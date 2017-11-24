@@ -1,0 +1,29 @@
+canvas {
+    width: 300px;
+    height: 180px;
+}
+#groverCleveland {
+    width: 300px;
+    height: 330px;
+    margin-top: -415px;
+    background-image: url("../../assets/GroverCleveland.png");
+    position: absolute;
+}
+@media (max-height: 475px) {
+    #groverClevelandWrapper {
+        display: none;
+    }
+}
+@media (min-height: 475px) {
+    #groverClevelandWrapper {
+        width: 300px;
+        height: 180px;
+        padding: 235px 10px 0 10px;
+        position: absolute;
+    }
+}
+#listWrapper {
+    width: 320px;
+    margin: 0 auto;
+    padding-top: 100px;
+}

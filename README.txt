@@ -1,2 +1,2 @@
-11/19/2017 1st commit 
-I am just setting up this application. This will be a personal play place of sorts.
+11/24/2017 2nd commit 
+I hope everyone has a happy Black Friday! w00t!

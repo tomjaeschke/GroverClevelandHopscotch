@@ -36,7 +36,7 @@ describe('IpComponent (shallow)', () => {
                 fixture.detectChanges();
                 fixture.whenStable().then(() => {
                     fixture.detectChanges();
-                    expect(element.querySelector('section').textContent).toContain('Welcome 127.0.0.1 to Grover Cleveland Hopscotch!');
+                    expect(element.querySelector('li').textContent).toContain('Welcome 127.0.0.1 to Grover Cleveland Hopscotch!');
                 });
         }));
     });

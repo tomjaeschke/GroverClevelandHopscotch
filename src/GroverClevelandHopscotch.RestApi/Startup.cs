@@ -37,6 +37,7 @@ namespace GroverClevelandHopscotch.RestApi
         public void ConfigureIoC(IServiceCollection services)
         {
             services.AddTransient<IIpMechanics, IpMechanics>();
+            services.AddTransient<IClockMechanics, ClockMechanics>();
         }
     }
 }

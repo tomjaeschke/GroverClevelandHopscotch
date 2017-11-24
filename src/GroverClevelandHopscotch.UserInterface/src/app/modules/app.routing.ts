@@ -1,7 +1,7 @@
 import { ModuleWithProviders }  from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { IpComponent }  from '../components/ip.component';
+import { HomeComponent }  from '../components/home.component';
 
 const appRoutes: Routes = [
   {
@@ -11,7 +11,7 @@ const appRoutes: Routes = [
   },
   {
     path: 'home',
-    component: IpComponent
+    component: HomeComponent
   }
 ];
 

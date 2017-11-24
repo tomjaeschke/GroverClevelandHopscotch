@@ -13,6 +13,7 @@ import { FormsModule }   from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { LayoutComponent } from '../layout/layout.component';
+import { HomeComponent } from '../components/home.component';
 import { IpComponent } from '../components/ip.component';
 import { IpContract } from '../contracts/ip.contract';
 import { IpService } from '../services/ip.service';
@@ -28,7 +29,8 @@ import { routing } from './app.routing';
   ],
   declarations: [
     LayoutComponent,
-    IpComponent
+    IpComponent,
+    HomeComponent
   ],
   bootstrap: [ LayoutComponent ],
   providers: [ 
