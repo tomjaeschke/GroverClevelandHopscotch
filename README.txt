@@ -1,2 +1,2 @@
-11/24/2017 2nd commit 
-I hope everyone has a happy Black Friday! w00t!
+11/26/2017 3rd commit 
+I am bettering the timekeeping clock mechanics.

@@ -21,11 +21,17 @@ namespace GroverClevelandHopscotch.Core.Objects
                 case 2:
                     day = "2nd";
                     break;
+                case 3:
+                    day = "3rd";
+                    break;
                 case 21:
                     day = "21st";
                     break;
                 case 22:
                     day = "22nd";
+                    break;
+                case 23:
+                    day = "23rd";
                     break;
                 case 31:
                     day = "31st";
@@ -44,7 +50,7 @@ namespace GroverClevelandHopscotch.Core.Objects
                     hour = "noon";
                     break;
                 default:
-                    if (time.Hour > 12)
+                    if (time.Hour < 12)
                     {
                         hour = time.Hour + " in the ante meridiem";
                     }

@@ -14,9 +14,9 @@ namespace GroverClevelandHopscotch.RestApi.Controllers
         }
 
         [HttpGet]
-        public ObjectResult Get(IClockMechanics clockMechanics)
+        public ObjectResult Get()
         {
-            TimeMessage timeMessage = new TimeMessage(clockMechanics);
+            TimeMessage timeMessage = new TimeMessage(_clockMechanics);
             return Ok(timeMessage);
         }
     }

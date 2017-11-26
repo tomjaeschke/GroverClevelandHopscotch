@@ -17,6 +17,9 @@ import { HomeComponent } from '../components/home.component';
 import { IpComponent } from '../components/ip.component';
 import { IpContract } from '../contracts/ip.contract';
 import { IpService } from '../services/ip.service';
+import { ClockComponent } from '../components/clock.component';
+import { TimeContract } from '../contracts/time.contract';
+import { TimeService } from '../services/time.service';
 import {Configuration} from '../../configuration';
 import { routing } from './app.routing';
 
@@ -30,12 +33,14 @@ import { routing } from './app.routing';
   declarations: [
     LayoutComponent,
     IpComponent,
-    HomeComponent
+    HomeComponent,
+    ClockComponent
   ],
   bootstrap: [ LayoutComponent ],
   providers: [ 
     Configuration,
-    {provide: IpContract, useClass: IpService}
+    {provide: IpContract, useClass: IpService},
+    {provide: TimeContract, useClass: TimeService}
   ]
 })
 export class AppModule {}

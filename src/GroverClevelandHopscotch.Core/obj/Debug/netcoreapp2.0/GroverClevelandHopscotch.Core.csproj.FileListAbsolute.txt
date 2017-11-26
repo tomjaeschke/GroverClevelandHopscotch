@@ -1,0 +1,9 @@
+C:\Apps\GroverClevelandHopscotch\src\GroverClevelandHopscotch.Core\bin\Debug\netcoreapp2.0\GroverClevelandHopscotch.Core.deps.json
+C:\Apps\GroverClevelandHopscotch\src\GroverClevelandHopscotch.Core\bin\Debug\netcoreapp2.0\GroverClevelandHopscotch.Core.dll
+C:\Apps\GroverClevelandHopscotch\src\GroverClevelandHopscotch.Core\bin\Debug\netcoreapp2.0\GroverClevelandHopscotch.Core.pdb
+C:\Apps\GroverClevelandHopscotch\src\GroverClevelandHopscotch.Core\obj\Debug\netcoreapp2.0\GroverClevelandHopscotch.Core.csproj.CoreCompileInputs.cache
+C:\Apps\GroverClevelandHopscotch\src\GroverClevelandHopscotch.Core\obj\Debug\netcoreapp2.0\GroverClevelandHopscotch.Core.AssemblyInfoInputs.cache
+C:\Apps\GroverClevelandHopscotch\src\GroverClevelandHopscotch.Core\obj\Debug\netcoreapp2.0\GroverClevelandHopscotch.Core.AssemblyInfo.cs
+C:\Apps\GroverClevelandHopscotch\src\GroverClevelandHopscotch.Core\obj\Debug\netcoreapp2.0\GroverClevelandHopscotch.Core.dll
+C:\Apps\GroverClevelandHopscotch\src\GroverClevelandHopscotch.Core\obj\Debug\netcoreapp2.0\GroverClevelandHopscotch.Core.pdb
+C:\Apps\GroverClevelandHopscotch\src\GroverClevelandHopscotch.Core\obj\Debug\netcoreapp2.0\GroverClevelandHopscotch.Core.csprojResolveAssemblyReference.cache
