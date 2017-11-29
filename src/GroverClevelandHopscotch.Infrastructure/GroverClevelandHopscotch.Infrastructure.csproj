@@ -5,6 +5,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="BackingStore.csv" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="BackingStore.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\GroverClevelandHopscotch.Core\GroverClevelandHopscotch.Core.csproj" />
   </ItemGroup>
 

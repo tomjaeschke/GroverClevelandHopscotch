@@ -1,9 +1,0 @@
-C:\Apps\Yay\HelloWorld\HelloWorld.Core\bin\Debug\netcoreapp2.0\HelloWorld.Core.deps.json
-C:\Apps\Yay\HelloWorld\HelloWorld.Core\bin\Debug\netcoreapp2.0\HelloWorld.Core.dll
-C:\Apps\Yay\HelloWorld\HelloWorld.Core\bin\Debug\netcoreapp2.0\HelloWorld.Core.pdb
-C:\Apps\Yay\HelloWorld\HelloWorld.Core\obj\Debug\netcoreapp2.0\HelloWorld.Core.csprojResolveAssemblyReference.cache
-C:\Apps\Yay\HelloWorld\HelloWorld.Core\obj\Debug\netcoreapp2.0\HelloWorld.Core.csproj.CoreCompileInputs.cache
-C:\Apps\Yay\HelloWorld\HelloWorld.Core\obj\Debug\netcoreapp2.0\HelloWorld.Core.AssemblyInfoInputs.cache
-C:\Apps\Yay\HelloWorld\HelloWorld.Core\obj\Debug\netcoreapp2.0\HelloWorld.Core.AssemblyInfo.cs
-C:\Apps\Yay\HelloWorld\HelloWorld.Core\obj\Debug\netcoreapp2.0\HelloWorld.Core.dll
-C:\Apps\Yay\HelloWorld\HelloWorld.Core\obj\Debug\netcoreapp2.0\HelloWorld.Core.pdb
