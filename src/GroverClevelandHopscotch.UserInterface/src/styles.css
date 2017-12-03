@@ -1,112 +1,125 @@
+a:link {
+   text-decoration: none;
+   color: #0000FF;
+   cursor: pointer;
+}
+a:visited {
+   text-decoration: none;
+   color: #0000FF;
+   cursor: pointer;
+}
+a:hover {
+   text-decoration: none;
+   color: #000000;
+   cursor: pointer;
+}
+a:active {
+   text-decoration: none;
+   color: #0000FF;
+   cursor: pointer;
+}
 article {
 	background-color: #F9F9F9;
 	margin-left: -3px;
 	width: calc(100% + 6px);
 	height: calc(100% - 40px);
 }
-body {
-	margin: 0 3px 0 3px;
-	font-family: Georgia, "Times New Roman", Times serif;
-	font-size: 13px;
-	background-color: #FFFFFF;
-	line-height: 20px;
-}
 footer {
 	text-align: right;
 	width: 100%
 }
-@media (min-height: 200px) {section{height: 160px;}}
-@media (min-height: 220px) {section{height: 180px;}}
-@media (min-height: 240px) {section{height: 200px;}}
-@media (min-height: 260px) {section{height: 220px;}}
-@media (min-height: 280px) {section{height: 240px;}}
-@media (min-height: 300px) {section{height: 260px;}}
-@media (min-height: 320px) {section{height: 280px;}}
-@media (min-height: 340px) {section{height: 300px;}}
-@media (min-height: 360px) {section{height: 320px;}}
-@media (min-height: 380px) {section{height: 340px;}}
-@media (min-height: 400px) {section{height: 360px;}}
-@media (min-height: 420px) {section{height: 380px;}}
-@media (min-height: 440px) {section{height: 400px;}}
-@media (min-height: 460px) {section{height: 420px;}}
-@media (min-height: 480px) {section{height: 440px;}}
-@media (min-height: 500px) {section{height: 460px;}}
-@media (min-height: 520px) {section{height: 480px;}}
-@media (min-height: 540px) {section{height: 500px;}}
-@media (min-height: 560px) {section{height: 520px;}}
-@media (min-height: 580px) {section{height: 540px;}}
-@media (min-height: 600px) {section{height: 560px;}}
-@media (min-height: 620px) {section{height: 580px;}}
-@media (min-height: 640px) {section{height: 600px;}}
-@media (min-height: 660px) {section{height: 620px;}}
-@media (min-height: 680px) {section{height: 640px;}}
-@media (min-height: 700px) {section{height: 660px;}}
-@media (min-height: 720px) {section{height: 680px;}}
-@media (min-height: 740px) {section{height: 700px;}}
-@media (min-height: 760px) {section{height: 720px;}}
-@media (min-height: 780px) {section{height: 740px;}}
-@media (min-height: 800px) {section{height: 760px;}}
-@media (min-height: 820px) {section{height: 780px;}}
-@media (min-height: 840px) {section{height: 800px;}}
-@media (min-height: 860px) {section{height: 820px;}}
-@media (min-height: 880px) {section{height: 840px;}}
-@media (min-height: 900px) {section{height: 860px;}}
-@media (min-height: 920px) {section{height: 880px;}}
-@media (min-height: 940px) {section{height: 900px;}}
-@media (min-height: 960px) {section{height: 920px;}}
-@media (min-height: 980px) {section{height: 940px;}}
-@media (min-height: 1000px) {section{height: 960px;}}
-@media (min-height: 1020px) {section{height: 980px;}}
-@media (min-height: 1040px) {section{height: 1000px;}}
-@media (min-height: 1060px) {section{height: 1020px;}}
-@media (min-height: 1080px) {section{height: 1040px;}}
-@media (min-height: 1100px) {section{height: 1060px;}}
-@media (min-height: 1120px) {section{height: 1080px;}}
-@media (min-height: 1140px) {section{height: 1100px;}}
-@media (min-height: 1160px) {section{height: 1120px;}}
-@media (min-height: 1180px) {section{height: 1140px;}}
-@media (min-height: 1200px) {section{height: 1160px;}}
-@media (min-height: 1220px) {section{height: 1180px;}}
-@media (min-height: 1240px) {section{height: 1200px;}}
-@media (min-height: 1260px) {section{height: 1220px;}}
-@media (min-height: 1280px) {section{height: 1240px;}}
-@media (min-height: 1300px) {section{height: 1260px;}}
-@media (min-height: 1320px) {section{height: 1280px;}}
-@media (min-height: 1340px) {section{height: 1300px;}}
-@media (min-height: 1360px) {section{height: 1320px;}}
-@media (min-height: 1380px) {section{height: 1340px;}}
-@media (min-height: 1400px) {section{height: 1360px;}}
-@media (min-height: 1420px) {section{height: 1380px;}}
-@media (min-height: 1440px) {section{height: 1400px;}}
-@media (min-height: 1460px) {section{height: 1420px;}}
-@media (min-height: 1480px) {section{height: 1440px;}}
-@media (min-height: 1500px) {section{height: 1460px;}}
-@media (min-height: 1520px) {section{height: 1480px;}}
-@media (min-height: 1540px) {section{height: 1500px;}}
-@media (min-height: 1560px) {section{height: 1520px;}}
-@media (min-height: 1580px) {section{height: 1540px;}}
-@media (min-height: 1600px) {section{height: 1560px;}}
-@media (min-height: 1620px) {section{height: 1580px;}}
-@media (min-height: 1640px) {section{height: 1600px;}}
-@media (min-height: 1660px) {section{height: 1620px;}}
-@media (min-height: 1680px) {section{height: 1640px;}}
-@media (min-height: 1700px) {section{height: 1660px;}}
-@media (min-height: 1720px) {section{height: 1680px;}}
-@media (min-height: 1740px) {section{height: 1700px;}}
-@media (min-height: 1760px) {section{height: 1720px;}}
-@media (min-height: 1780px) {section{height: 1740px;}}
-@media (min-height: 1800px) {section{height: 1760px;}}
-@media (min-height: 1820px) {section{height: 1780px;}}
-@media (min-height: 1840px) {section{height: 1800px;}}
-@media (min-height: 1860px) {section{height: 1820px;}}
-@media (min-height: 1880px) {section{height: 1840px;}}
-@media (min-height: 1900px) {section{height: 1860px;}}
-@media (min-height: 1920px) {section{height: 1880px;}}
-@media (min-height: 1940px) {section{height: 1900px;}}
-@media (min-height: 1960px) {section{height: 1920px;}}
-@media (min-height: 1980px) {section{height: 1940px;}}
-@media (min-height: 2000px) {section{height: 1960px;}}
-@media (min-height: 2020px) {section{height: 1980px;}}
-@media (min-height: 2040px) {section{height: 2000px;}}
-@media (min-height: 2060px) {section{height: 2020px;}}
-@media (min-height: 2080px) {section{height: 2040px;}}
+@media (min-height: 200px) {section{height: 160px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 220px) {section{height: 180px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 240px) {section{height: 200px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 260px) {section{height: 220px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 280px) {section{height: 240px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 300px) {section{height: 260px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 320px) {section{height: 280px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 340px) {section{height: 300px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 360px) {section{height: 320px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 380px) {section{height: 340px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 400px) {section{height: 360px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 420px) {section{height: 380px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 440px) {section{height: 400px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 460px) {section{height: 420px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 480px) {section{height: 440px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 500px) {section{height: 460px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 520px) {section{height: 480px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 540px) {section{height: 500px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 560px) {section{height: 520px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 580px) {section{height: 540px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 600px) {section{height: 560px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 620px) {section{height: 580px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 640px) {section{height: 600px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 660px) {section{height: 620px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 680px) {section{height: 640px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 700px) {section{height: 660px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 720px) {section{height: 680px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 740px) {section{height: 700px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 760px) {section{height: 720px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 780px) {section{height: 740px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 800px) {section{height: 760px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 820px) {section{height: 780px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 840px) {section{height: 800px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 860px) {section{height: 820px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 880px) {section{height: 840px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 900px) {section{height: 860px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 920px) {section{height: 880px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 940px) {section{height: 900px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 960px) {section{height: 920px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 980px) {section{height: 940px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 1000px) {section{height: 960px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 1020px) {section{height: 980px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 1040px) {section{height: 1000px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 1060px) {section{height: 1020px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 1080px) {section{height: 1040px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 1100px) {section{height: 1060px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 1120px) {section{height: 1080px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 1140px) {section{height: 1100px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 1160px) {section{height: 1120px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 1180px) {section{height: 1140px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 1200px) {section{height: 1160px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 1220px) {section{height: 1180px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 1240px) {section{height: 1200px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 1260px) {section{height: 1220px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 1280px) {section{height: 1240px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 1300px) {section{height: 1260px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 1320px) {section{height: 1280px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 1340px) {section{height: 1300px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 1360px) {section{height: 1320px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 1380px) {section{height: 1340px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 1400px) {section{height: 1360px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 1420px) {section{height: 1380px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 1440px) {section{height: 1400px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 1460px) {section{height: 1420px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 1480px) {section{height: 1440px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 1500px) {section{height: 1460px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 1520px) {section{height: 1480px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 1540px) {section{height: 1500px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 1560px) {section{height: 1520px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 1580px) {section{height: 1540px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 1600px) {section{height: 1560px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 1620px) {section{height: 1580px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 1640px) {section{height: 1600px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 1660px) {section{height: 1620px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 1680px) {section{height: 1640px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 1700px) {section{height: 1660px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 1720px) {section{height: 1680px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 1740px) {section{height: 1700px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 1760px) {section{height: 1720px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 1780px) {section{height: 1740px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 1800px) {section{height: 1760px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 1820px) {section{height: 1780px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 1840px) {section{height: 1800px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 1860px) {section{height: 1820px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 1880px) {section{height: 1840px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 1900px) {section{height: 1860px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 1920px) {section{height: 1880px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 1940px) {section{height: 1900px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 1960px) {section{height: 1920px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 1980px) {section{height: 1940px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 2000px) {section{height: 1960px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 2020px) {section{height: 1980px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 2040px) {section{height: 2000px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 2060px) {section{height: 2020px; overflow:scroll; overflow-x:hidden;}}
+@media (min-height: 2080px) {section{height: 2040px; overflow:scroll; overflow-x:hidden;}}

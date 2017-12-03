@@ -16,7 +16,7 @@ export class ClockComponent implements OnInit {
     ngOnInit(): void{
         this.timeContract.getTime().toPromise().then(
             function(data) {
-                this.greeting = "The universal Greenwich time is " + data.FriendlyFormatTime + " currently.";
+                this.greeting = "The universal/Greenwich time is " + data.FriendlyFormatTime + " currently.";
             }.bind(this),
             function(error){
                 console.log(error);

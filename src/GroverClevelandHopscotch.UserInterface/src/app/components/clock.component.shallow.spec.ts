@@ -36,7 +36,7 @@ describe('ClockComponent (shallow)', () => {
                 fixture.detectChanges();
                 fixture.whenStable().then(() => {
                     fixture.detectChanges();
-                    expect(element.querySelector('li').textContent).toContain('The universal Greenwich time is 19 past 9 in the post meridiem on November, 26th of 2017 currently.');
+                    expect(element.querySelector('li').textContent).toContain('The universal/Greenwich time is 19 past 9 in the post meridiem on November, 26th of 2017 currently.');
                 });
         }));
     });

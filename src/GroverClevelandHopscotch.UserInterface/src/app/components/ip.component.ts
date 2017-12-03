@@ -16,7 +16,7 @@ export class IpComponent implements OnInit {
     ngOnInit(): void{
         this.ipContract.getIp().toPromise().then(
             function(data) {
-                this.greeting = "Welcome " + data.Ip + " to Grover Cleveland Hopscotch!";
+                this.greeting = "Welcome " + data.Ip + ", to Grover Cleveland Hopscotch!";
             }.bind(this),
             function(error){
                 console.log(error);

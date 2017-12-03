@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { LayoutComponent } from '../layout/layout.component';
 import { HomeComponent } from '../components/home.component';
+import { ListComponent } from '../components/list.component';
 import { IpComponent } from '../components/ip.component';
 import { IpContract } from '../contracts/ip.contract';
 import { IpService } from '../services/ip.service';
@@ -22,6 +23,8 @@ import { TimeContract } from '../contracts/time.contract';
 import { TimeService } from '../services/time.service';
 import {Configuration} from '../../configuration';
 import { routing } from './app.routing';
+import { PresidentialContract } from '../contracts/presidential.contract';
+import { PresidentialService } from '../services/presidential.service';
 
 @NgModule({
   imports: [
@@ -34,13 +37,15 @@ import { routing } from './app.routing';
     LayoutComponent,
     IpComponent,
     HomeComponent,
-    ClockComponent
+    ClockComponent,
+    ListComponent
   ],
   bootstrap: [ LayoutComponent ],
   providers: [ 
     Configuration,
     {provide: IpContract, useClass: IpService},
-    {provide: TimeContract, useClass: TimeService}
+    {provide: TimeContract, useClass: TimeService},
+    {provide: PresidentialContract, useClass: PresidentialService}
   ]
 })
 export class AppModule {}
