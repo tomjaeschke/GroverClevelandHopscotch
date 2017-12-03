@@ -1,3 +1,5 @@
 <ul *ngIf="presidents">
-    <li *ngFor="let president of presidents">{{president.Name}}</li>
+    <ng-container *ngFor="let president of presidents">
+        <li>{{president.Name}} {{president.ImmediatePosition}}</li>
+    </ng-container> 
 </ul>
