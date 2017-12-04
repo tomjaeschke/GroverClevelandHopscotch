@@ -1,4 +1,4 @@
-12/3/2017 6th commit 
-This is a periodic check in of my sorting logic. I don't want to lose the imperfect algorithm I have so far. 
+12/4/2017 7th commit 
+I fixed my janky algorithm. Yay for me. 
 
 There are really two apps here. An Angular app at \src\GroverClevelandHopscotch.UserInterface\src\ running at http://localhost:4200/ will try to crosstalk with a REST API app run from the Visual Studio 2017 solution at \src\GroverClevelandHopscotch.sln at http://localhost:58220/ and that means that http://localhost:58220/ has to exist in a configuration file somewhere right? That file is at \src\GroverClevelandHopscotch.UserInterface\src\configuration.ts should you need to change it. Otherwise there should be little to configure. There is no database or anything like that. There is a flat file at \src\GroverClevelandHopscotch.Infrastructure\BackingStore.csv that is my pseudodatabase. Don't put silly permission restrictions on it please. Enjoy.

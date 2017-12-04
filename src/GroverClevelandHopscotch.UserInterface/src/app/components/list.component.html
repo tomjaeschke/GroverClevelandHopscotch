@@ -1,5 +1,5 @@
-<ul *ngIf="presidents">
+<ol *ngIf="presidents">
     <ng-container *ngFor="let president of presidents">
-        <li>{{president.Name}} {{president.ImmediatePosition}}</li>
+        <li [class]="!president.Party ? 'extraPadding' : ''">{{president.Name}} <div *ngIf="president.Party">{{president.Party}}</div></li>
     </ng-container> 
-</ul>
+</ol>

@@ -5,7 +5,8 @@ import { PresidentialSorter } from '../utilities/presidentialSorter.utility';
 import { PresidentialContract } from '../contracts/presidential.contract';
 @Component({
     selector: 'list',
-    templateUrl: './list.component.html'
+    templateUrl: './list.component.html',
+    styleUrls:  ['./list.component.css']
 })
 export class ListComponent implements OnInit {
     presidents:Array<PresidentPlus>;

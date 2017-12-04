@@ -27,9 +27,9 @@ namespace GroverClevelandHopscotch.Infrastructure.Dependencies
                         }
                         if (scrappings.Length > 1)
                         {
-                            president.Party = scrappings[1];
+                            president.Party = scrappings[1].Trim();
                         }
-                        president.Name = scrappings[0];
+                        president.Name = scrappings[0].Trim();
                         presidents.Add(president);
                     }
                     return presidents;
