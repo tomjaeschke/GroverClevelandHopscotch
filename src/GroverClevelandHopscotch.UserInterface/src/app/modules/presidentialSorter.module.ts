@@ -1,6 +1,6 @@
 import { President } from '../models/president.model';
 import { PresidentPlus } from '../models/presidentPlus.model';
-export module PresidentialSorter {
+export module PresidentialSorterModule {
     export function Sort(presidents:Array<President>):Array<PresidentPlus> {
         let counter:number = 0;
         let nonconsecutivePresident:PresidentPlus = null;
