@@ -27,7 +27,7 @@ export module PresidentialSorterModule {
                 let isToKeepIncrementing:Boolean = true;
                 while (backwardsCounter < counter) {                  
                     backwardsCounter++;
-                    if (presidents[counter-3].HasNonconsecutiveTerms){
+                    if (presidents[counter-backwardsCounter].HasNonconsecutiveTerms){
                         if (isToKeepIncrementing) {
                             isEvenDeepInNonconsecutiveness = !isEvenDeepInNonconsecutiveness;
                         }
@@ -44,6 +44,12 @@ export module PresidentialSorterModule {
                 output.push(nonconsecutivePresident);
             }         
         });
+        if(output[output.length-1].Name != presidents[presidents.length-1].Name){
+            if (presidents[presidents.length-1].HasNonconsecutiveTerms){
+                let lastPresident:PresidentPlus = MapPresidentToPresidentPlus(presidents[presidents.length-1]);
+                output.push(lastPresident);
+            }
+        }
         output[output.length-1].IsCurrentPresident = true;
         counter = 0;
         output.forEach((spot:PresidentPlus): void => {
