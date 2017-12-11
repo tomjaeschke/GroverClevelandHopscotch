@@ -10,11 +10,14 @@ import 'rxjs/add/operator/switchMap';
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule }   from '@angular/forms';
+import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { LayoutComponent } from '../layout/layout.component';
 import { HomeComponent } from '../components/home.component';
 import { ListComponent } from '../components/list.component';
+import { ReactiveFormsComponent } from '../components/reactiveForms.component';
+import { SuperSimpleFormComponent } from '../components/superSimpleForm.component';
 import { IpComponent } from '../components/ip.component';
 import { IpContract } from '../contracts/ip.contract';
 import { IpService } from '../services/ip.service';
@@ -30,6 +33,7 @@ import { PresidentialService } from '../services/presidential.service';
   imports: [
     BrowserModule,
     FormsModule,
+    HttpModule,
     HttpClientModule,
     routing
   ],
@@ -38,7 +42,9 @@ import { PresidentialService } from '../services/presidential.service';
     IpComponent,
     HomeComponent,
     ClockComponent,
-    ListComponent
+    ListComponent,
+    ReactiveFormsComponent,
+    SuperSimpleFormComponent
   ],
   bootstrap: [ LayoutComponent ],
   providers: [ 

@@ -5,5 +5,6 @@ namespace GroverClevelandHopscotch.Core.Interfaces
     public interface IFlatFileMechanics
     {
         List<President> GetPresidents();
+        void SetPresidents(List<President> list);
     }
 }

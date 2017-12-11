@@ -3,7 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent }  from '../components/home.component';
 import { ListComponent }  from '../components/list.component';
-
+import { ReactiveFormsComponent } from '../components/reactiveForms.component';
+import { SuperSimpleFormComponent } from '../components/superSimpleForm.component';
 const appRoutes: Routes = [
   {
     path: '',
@@ -17,6 +18,14 @@ const appRoutes: Routes = [
   {
     path: 'list',
     component: ListComponent
+  },
+  {
+    path: 'reactive',
+    component: ReactiveFormsComponent
+  },
+  {
+    path: 'simple',
+    component: SuperSimpleFormComponent
   }
 ];
 

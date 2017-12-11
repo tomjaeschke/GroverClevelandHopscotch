@@ -1,0 +1,32 @@
+<table *ngIf="presidents && presidents.length > 0">
+    <tr>
+        <th></th>
+        <th></th>
+        <th>Back</th>
+    </tr>
+    <tr>
+        <th>Name</th>
+        <th>Party</th>
+        <th>Again?</th>
+    </tr>
+    <tr *ngFor="let president of presidents">
+        <td>
+            <input [(ngModel)]="president.Name" />
+        </td>
+        <td>
+            <select [(ngModel)]="president.Party">
+                <option *ngFor="let party of parties" [value]="party ? party : ''" selected>{{party}}</option>
+            </select>
+        </td>
+        <td>
+            <input id="checkBox" type="checkbox"  [(ngModel)]="president.HasNonconsecutiveTerms">
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td>
+            <button (click)="pushToServer()">Go</button>
+        </td>
+    </tr>
+</table>
