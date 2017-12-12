@@ -24,7 +24,7 @@ namespace GroverClevelandHopscotch.RestApi.Controllers
         public ObjectResult Put([FromBody] List<President> presidents)
         {
             _flatFileMechanics.SetPresidents(presidents);
-            return Ok(true);
+            return Ok(null);
         }
     }
 }

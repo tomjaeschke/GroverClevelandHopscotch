@@ -56,8 +56,10 @@ export class SuperSimpleFormComponent implements OnInit {
             let counter:number = 1;
             this.parties = [presidentsCopy[0].Party];
             while (counter < presidentsCopy.length){
-                if (presidentsCopy[counter].Party != this.parties[this.parties.length-1]){
-                    this.parties.push(presidentsCopy[counter].Party);
+                if (presidentsCopy[counter].Party + "" != this.parties[this.parties.length-1] + ""){
+                    if (presidentsCopy[counter].Party) {
+                        this.parties.push(presidentsCopy[counter].Party);  
+                    }                
                 }
                 counter++;
             }
