@@ -14,6 +14,7 @@ import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { LayoutComponent } from '../layout/layout.component';
+import { MenuComponent } from '../layout/menu.component';
 import { HomeComponent } from '../components/home.component';
 import { ListComponent } from '../components/list.component';
 import { ReactiveFormsComponent } from '../components/reactiveForms.component';
@@ -24,7 +25,7 @@ import { IpService } from '../services/ip.service';
 import { ClockComponent } from '../components/clock.component';
 import { TimeContract } from '../contracts/time.contract';
 import { TimeService } from '../services/time.service';
-import {Configuration} from '../../configuration';
+import { Configuration } from '../../configuration';
 import { routing } from './app.routing';
 import { PresidentialContract } from '../contracts/presidential.contract';
 import { PresidentialService } from '../services/presidential.service';
@@ -39,6 +40,7 @@ import { PresidentialService } from '../services/presidential.service';
   ],
   declarations: [
     LayoutComponent,
+    MenuComponent,
     IpComponent,
     HomeComponent,
     ClockComponent,

@@ -1,0 +1,12 @@
+menu{
+    display:block;
+    float:right;
+    width: 160px;
+    margin-top: -1px;
+}
+menuitem{
+    display: block;
+    text-align: right;
+    width: 155px;
+    padding-right: 5px;
+}
