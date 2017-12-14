@@ -1,6 +1,8 @@
-<menu *ngIf="isNotHome">
-    <menuitem><a href="/home">escape away</a></menuitem>
-    <menuitem *ngIf="whereAmI != 'list'"><a href="/list">view a list of records</a></menuitem>
-    <menuitem *ngIf="whereAmI != 'simple'"><a href="/simple">make simple edits</a></menuitem>
-    <menuitem *ngIf="whereAmI != 'reactive'"><a href="/reactive">reactive forms experiment</a></menuitem>
-</menu>
+<nav>
+    <menu *ngIf="isNotHome">
+        <menuitem><a href="/home">escape away</a></menuitem>
+        <menuitem *ngIf="whereAmI != 'list'"><a href="/list">view a list of records</a></menuitem>
+        <menuitem *ngIf="whereAmI != 'simple'"><a href="/simple">make simple edits</a></menuitem>
+        <menuitem *ngIf="whereAmI != 'reactive'"><a href="/reactive">reactive forms experiment</a></menuitem>
+    </menu>
+</nav>
