@@ -1,14 +1,17 @@
 <form>
     <table>
         <tr>
-            <th></th>
-            <th></th>
-            <th></th>
+            <th>Name</th>
+            <th>Party</th>
+            <th>Nonconsecutiveness?</th>
+        </tr>
+        <tr *ngFor="let lineItem of presidentsForm.get('lineItems').controls; let i=index">
+            <td></td>
+            <td></td>
+            <td></td>
         </tr>
         <tr>
-            <td></td>
-            <td></td>
-            <td>(coming soon)</td>
+            <td colspan="3"><input type="submit"/></td>
         </tr>
     </table>
 </form>
