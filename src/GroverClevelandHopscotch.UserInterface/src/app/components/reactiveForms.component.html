@@ -1,15 +1,17 @@
-<form>
+<form [formGroup]="presidentsForm">
     <table>
         <tr>
             <th>Name</th>
             <th>Party</th>
             <th>Nonconsecutiveness?</th>
         </tr>
-        <tr *ngFor="let lineItem of presidentsForm.get('lineItems').controls; let i=index">
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
+        <ng-container formArrayName="lineItems">
+            <tr *ngFor="let lineItem of presidentsForm.get('lineItems').controls; let i=index" [formGroupName]="i">
+                <td><input type="text"/></td>
+                <td><input type="text" /></td>
+                <td><input type="checkbox" /></td>
+            </tr>
+        </ng-container>
         <tr>
             <td colspan="3"><input type="submit"/></td>
         </tr>
