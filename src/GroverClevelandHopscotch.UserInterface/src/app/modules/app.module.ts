@@ -29,6 +29,7 @@ import { routing } from './app.routing';
 import { PresidentialContract } from '../contracts/presidential.contract';
 import { PresidentialService } from '../services/presidential.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 @NgModule({
   imports: [
@@ -54,7 +55,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     Configuration,
     {provide: IpContract, useClass: IpService},
     {provide: TimeContract, useClass: TimeService},
-    {provide: PresidentialContract, useClass: PresidentialService}
+    {provide: PresidentialContract, useClass: PresidentialService},
+    {provide: LocationStrategy, useClass: HashLocationStrategy}
   ]
 })
 export class AppModule {}
