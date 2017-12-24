@@ -27,7 +27,7 @@ export class SuperSimpleFormComponent implements OnInit {
     public pushToServer():void{
         this.presidentialContract.setPresidents(this.presidents).toPromise().then(
             function(data) {
-                window.location.href = "/list";
+                window.location.href = "/#/list";
             }.bind(this),
             function(error){
                 console.log(error);
