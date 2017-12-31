@@ -7,13 +7,13 @@
         </tr>
         <ng-container formArrayName="lineItems">
             <tr *ngFor="let lineItem of presidentsForm.get('lineItems').controls; let i=index" [formGroupName]="i">
-                <td><input type="text"/></td>
-                <td><input type="text" /></td>
-                <td><input type="checkbox" /></td>
+                <td><input type="text" formControlName="name" /></td>
+                <td><input type="text" formControlName="party" /></td>
+                <td><input type="checkbox" formControlName="hasNonconsecutiveTerms" /></td>
             </tr>
         </ng-container>
         <tr>
-            <td colspan="3"><input type="submit"/></td>
+            <td colspan="3"><button (click)="submit()">Go</button></td>
         </tr>
     </table>
 </form>

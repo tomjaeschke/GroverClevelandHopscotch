@@ -38,7 +38,22 @@ export class ReactiveFormsComponent implements OnInit {
             });
     }
 
-    submit(reactiveForm: NgForm): void {
-        
+    submit(): void {
+        let presidents:President[] = [];
+        let formArray:any = this.presidentsForm.controls['lineItems'];
+        formArray.controls.forEach((formGroup:FormGroup):void => {
+            let president:President = new President;
+            president.Name = formGroup.controls['name'].value;
+            president.Party = formGroup.controls['party'].value;
+            president.HasNonconsecutiveTerms = formGroup.controls['hasNonconsecutiveTerms'].value;
+            presidents.push(president);
+        });
+        this.presidentialContract.setPresidents(presidents).toPromise().then(
+            function(data) {
+                window.location.href = "/#/list";
+            }.bind(this),
+            function(error){
+                console.log(error);
+            });
     }
 }
