@@ -36,6 +36,10 @@ namespace GroverClevelandHopscotch.Infrastructure.Dependencies
                 {
                     return scrappings[counter + 2].Split("<".ToCharArray())[0];
                 }
+                if (scrapping.IndexOf("Your IP address:") > -1)
+                {
+                    return scrappings[counter + 2].Split("<".ToCharArray())[0];
+                }
                 counter++;
             }
             return null;
