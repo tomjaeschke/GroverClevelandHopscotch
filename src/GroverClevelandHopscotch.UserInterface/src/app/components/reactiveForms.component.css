@@ -1,21 +1,126 @@
-table{
-    border-spacing: 0;
-    padding: 0;
+.circle {
+   width: 30px;
+   height: 30px;
+   border-radius: 50%;
+   border: 2px solid #0000FF;
+   margin-top: 13px;
+   float: left;
+   display: table-cell;
+   text-align: center;
+   line-height: 26px;
+}
+form {
     margin: 10px;
+    width: 580px;
 }
-td{
-    border-spacing: 0;
-    padding: 0;
-    margin: 0;
+.headerLeft{
+    float: right;
+    width: 201px;
 }
-th{
-    border-spacing: 0;
-    padding: 0;
-    margin: 0;
-    font-weight: normal;
+.headerMiddle{
+    float: right;
+    width: 131px;
 }
-tr{
-    border-spacing: 0;
-    padding: 0;
-    margin: 0;
+.headerRight{
+    float: right;
+    width: 200px;
+}
+.headerWrapper{
+    height: 20px;
+    width: 580px;
+}
+input[type=text] {
+    width: 170px;
+    border: 1px solid #666666;
+    height: 18px;
+    z-index: 100;
+    position: relative;
+}
+input[type=checkbox] {
+    margin-top: 20px;
+}
+.lineItem {
+    width: 580px;
+    height: 120px;
+    margin-bottom: -60px;
+}
+.lineItemContent {
+    margin-left:-460px;
+    float: left;
+    z-index: 50;
+    position: relative;
+    margin-top: 3px;
+    height: 57px;
+}
+.lineItemContentCheckbox {
+    width: 38px;
+    float: left;
+}
+.lineItemContentName {
+    width: 202px;
+    padding-top: 16px;
+    float: left;
+}
+.lineItemContentPartyInput {
+    width: 200px;
+    padding-top: 2px;
+    height: 28px;
+}
+.lineItemContentPartySelect {
+    width: 200px;
+}
+.lineItemContentPartyWrapper {
+    width: 200px;
+    float: left;
+}
+.lineItemContentWrapper {
+    width: 490px;
+    height: 60px;
+    margin-top: -60px;
+    z-index: 10;
+    position: relative;
+}
+.lineItemLines {
+    width: 580px;
+    height: 60px;
+    z-index: 1;
+    position: relative;
+}
+.lineLeft {
+    height: 29px;
+    width: 200px;
+    border-bottom: 2px solid #0000FF;
+    float: left;
+}
+.lineMiddle {
+    height: 29px;
+    width: 20px;
+    border-bottom: 2px solid #0000FF;
+    float: left;
+}
+.lineRight {
+    height: 29px;
+    width: 15px;
+    border-bottom: 2px solid #0000FF;
+    float: left;
+}
+option {
+    color: #999999;
+}
+.rightSideWrapper {
+    height: 50px;
+    width: 50px;
+    float: left;
+}
+select {
+    width: 172px;
+    border: 1px solid;
+    color: #999999;
+}
+.split {
+    height: 26px;
+    width: 200px;
+    border: 2px solid #0000FF;
+    float: left;
+    margin-top: 15px;
 }

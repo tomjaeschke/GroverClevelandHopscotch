@@ -1,19 +1,45 @@
 <form [formGroup]="presidentsForm">
-    <table>
-        <tr>
-            <th>Name</th>
-            <th>Party</th>
-            <th>Nonconsecutiveness?</th>
-        </tr>
-        <ng-container formArrayName="lineItems">
-            <tr *ngFor="let lineItem of presidentsForm.get('lineItems').controls; let i=index" [formGroupName]="i">
-                <td><input type="text" formControlName="name" /></td>
-                <td><input type="text" formControlName="party" /></td>
-                <td><input type="checkbox" formControlName="hasNonconsecutiveTerms" /></td>
-            </tr>
-        </ng-container>
-        <tr>
-            <td colspan="3"><button (click)="submit()">Go</button></td>
-        </tr>
-    </table>
+    <div class="headerWrapper">
+        <div class="headerRight">
+            Nonconsecutiveness?
+        </div>
+        <div class="headerMiddle">
+            Party
+        </div>
+        <div class="headerLeft">
+            Name
+        </div>
+    </div>
+    <ng-container formArrayName="lineItems">
+        <div *ngFor="let lineItem of presidentsForm.get('lineItems').controls; let i=index" [formGroupName]="i" class="lineItem">
+            <div class="lineItemLines">
+                <div class="circle"></div>
+                <div class="lineLeft"></div>
+                <div class="split"></div>
+                <div class="lineMiddle"></div>
+                <div class="rightSideWrapper">
+                    <div class="lineRight"></div>
+                    <div class="circle"></div>
+                </div>
+            </div>
+            <div class="lineItemContentWrapper">
+                <div class="lineItemContent">
+                    <div class="lineItemContentName">
+                        <input type="text" formControlName="name" />
+                    </div>
+                    <div class="lineItemContentPartyWrapper">
+                        <div class="lineItemContentPartyInput">
+                            <input type="text" formControlName="party" />
+                        </div>
+                        <div class="lineItemContentPartySelect">
+                        </div>
+                    </div>
+                    <div class="lineItemContentCheckbox">
+                        <input type="checkbox" formControlName="hasNonconsecutiveTerms" />
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </ng-container> 
+    <button (click)="submit()">Go</button>    
 </form>
