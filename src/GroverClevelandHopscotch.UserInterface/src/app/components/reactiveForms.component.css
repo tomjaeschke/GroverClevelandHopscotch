@@ -1,3 +1,19 @@
+#bottomControls {
+    width: 390px;
+    padding: 19px 0 0 48px;
+    float: left;
+}
+#bottomImage {
+    float: left;
+    width: 70px;
+    height: 60px;
+    background-image: url("../../assets/GroverCleveland.png");
+    background-position: -259px -92px;
+}
+#bottomWrapper {
+    width: 508px;
+    height: 60px;
+}
 .circle {
    width: 30px;
    height: 30px;

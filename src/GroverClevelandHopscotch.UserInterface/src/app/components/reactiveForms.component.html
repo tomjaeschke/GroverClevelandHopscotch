@@ -41,5 +41,10 @@
             </div>
         </div>
     </ng-container> 
-    <button (click)="submit()">Go</button>    
+    <div id="bottomWrapper">
+        <div id="bottomControls">
+            <input type="text" formControlName="newName" /> <button>add new</button> <button>delete last</button> <button (click)="submit()">save all</button>
+        </div>
+        <div id="bottomImage"></div>
+    </div>
 </form>

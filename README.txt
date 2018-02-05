@@ -1,4 +1,4 @@
-1/28/2018 23rd commit 
-I am making the CSS at the reactive form more crazy. It should eventually make sense if I don't lose interest in this work. 
+2/4/2018 24th commit 
+I am adding some controls for adds and deletes at the reactive form. Hopefully, this will be the last of the HTML/CSS work for a while. 
 
 There are really two apps here. An Angular app at \src\GroverClevelandHopscotch.UserInterface\src\ running at http://localhost:4200/ will try to crosstalk with a REST API app run from the Visual Studio 2017 solution at \src\GroverClevelandHopscotch.sln at http://localhost:58220/ and that means that http://localhost:58220/ has to exist in a configuration file somewhere right? That file is at \src\GroverClevelandHopscotch.UserInterface\src\configuration.ts should you need to change it. Otherwise there should be little to configure. There is no database or anything like that. There is a flat file at \src\GroverClevelandHopscotch.Infrastructure\BackingStore.csv that is my pseudodatabase. Don't put silly permission restrictions on it please. Enjoy.
