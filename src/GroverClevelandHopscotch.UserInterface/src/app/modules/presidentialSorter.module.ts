@@ -1,6 +1,38 @@
 import { President } from '../models/president.model';
 import { PresidentPlus } from '../models/presidentPlus.model';
 export module PresidentialSorterModule {
+    export function IsBadName(presidents:Array<President>):Boolean {
+        let sortedPresidents = new Array<President>();
+        let isBadName:Boolean = false;
+        presidents.forEach((president) => {
+            if (!president.Name) {
+                isBadName = true;
+            } else {
+                if (!president.Name.trim()) isBadName = true;
+            }
+            sortedPresidents.push(JSON.parse(JSON.stringify(president)));
+        });
+        if (isBadName) return true;
+        sortedPresidents = sortedPresidents.sort((yin, yang) => {
+            if (yin.Name > yang.Name){
+                return 1;
+            }
+            if (yin.Name < yang.Name){
+                return -1;
+            }
+                return 0;
+            });
+        let namePlaceholder:string = "";
+        sortedPresidents.forEach((sortedPresident) => {
+            if (sortedPresident.Name == namePlaceholder) {
+                isBadName = true;
+            }
+            namePlaceholder = sortedPresident.Name;
+        });
+        if (isBadName) return true;
+        return false;
+    }
+    
     export function Sort(presidents:Array<President>):Array<PresidentPlus> {
         let counter:number = 0;
         let nonconsecutivePresident:PresidentPlus = null;
