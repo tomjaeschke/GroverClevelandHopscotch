@@ -90,7 +90,7 @@ input[type=checkbox] {
     float: left;
 }
 .lineItemContentWrapper {
-    width: 490px;
+    width: 550px;
     height: 60px;
     margin-top: -60px;
     z-index: 10;
@@ -123,10 +123,16 @@ input[type=checkbox] {
 option {
     color: #999999;
 }
-.rightSideWrapper {
+.rightSideWrapperBase {
     height: 50px;
     width: 50px;
     float: left;
+}
+.rightSideWrapperTop {
+    height: 50px;
+    width: 50px;
+    float: left;
+    margin-left: -35px;
 }
 select {
     width: 172px;

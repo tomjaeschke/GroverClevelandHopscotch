@@ -1,6 +1,46 @@
 import { President } from '../models/president.model';
 import { PresidentPlus } from '../models/presidentPlus.model';
 export module PresidentialSorterModule {
+    export function CraftPartyList(presidents:Array<President>): Array<string>{
+        let parties:Array<string>;
+        if (presidents.length > 1){
+            let presidentsCopy:Array<President> = JSON.parse(JSON.stringify(presidents)).sort((yin, yang) => {
+                let yinParty:string = "";
+                let yangParty:string = "";
+                if (yin.Party){
+                    yinParty = yin.Party;
+                }
+                if (yang.Party){
+                    yangParty = yang.Party;
+                }
+                if (yinParty > yangParty){
+                    return 1;
+                }
+                if (yinParty < yangParty){
+                    return -1;
+                }
+                return 0;
+            });
+            let counter:number = 1;
+            parties = [presidentsCopy[0].Party];
+            while (counter < presidentsCopy.length){
+                if (presidentsCopy[counter].Party + "" != parties[parties.length-1] + ""){
+                    if (presidentsCopy[counter].Party) {
+                        parties.push(presidentsCopy[counter].Party);  
+                    }                
+                }
+                counter++;
+            }
+        } else {
+            if (presidents.length == 0) {
+                parties = [];
+            } else {
+                parties = [presidents[0].Party]
+            }
+        }
+        return parties;
+    }
+    
     export function IsBadName(presidents:Array<President>):Boolean {
         let sortedPresidents = new Array<President>();
         let isBadName:Boolean = false;

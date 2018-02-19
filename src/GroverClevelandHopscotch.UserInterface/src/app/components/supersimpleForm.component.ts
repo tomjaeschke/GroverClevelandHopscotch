@@ -40,40 +40,6 @@ export class SuperSimpleFormComponent implements OnInit {
     }
 
     private createListOfParties():void{
-        if (this.presidents.length > 1){
-            let presidentsCopy:Array<President> = JSON.parse(JSON.stringify(this.presidents)).sort((yin, yang) => {
-                let yinParty:string = "";
-                let yangParty:string = "";
-                if (yin.Party){
-                    yinParty = yin.Party;
-                }
-                if (yang.Party){
-                    yangParty = yang.Party;
-                }
-                if (yinParty > yangParty){
-                    return 1;
-                }
-                if (yinParty < yangParty){
-                    return -1;
-                }
-                return 0;
-            });
-            let counter:number = 1;
-            this.parties = [presidentsCopy[0].Party];
-            while (counter < presidentsCopy.length){
-                if (presidentsCopy[counter].Party + "" != this.parties[this.parties.length-1] + ""){
-                    if (presidentsCopy[counter].Party) {
-                        this.parties.push(presidentsCopy[counter].Party);  
-                    }                
-                }
-                counter++;
-            }
-        } else {
-            if (this.presidents.length == 0) {
-                this.parties = [];
-            } else {
-                this.parties = [this.presidents[0].Party]
-            }
-        }
+        this.parties = PresidentialSorterModule.CraftPartyList(this.presidents);
     }
 }

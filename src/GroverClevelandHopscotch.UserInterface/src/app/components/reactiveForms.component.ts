@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { President } from '../models/president.model';
 import { PresidentialContract } from '../contracts/presidential.contract';
 import { FormsModule, ReactiveFormsModule, FormGroup, NgForm, FormArray, FormControl } from '@angular/forms';
+import { PresidentialSorterModule } from '../modules/presidentialSorter.module';
 @Component({
     selector: 'reactive',
     templateUrl: './reactiveForms.component.html',
@@ -9,6 +10,7 @@ import { FormsModule, ReactiveFormsModule, FormGroup, NgForm, FormArray, FormCon
 })
 export class ReactiveFormsComponent implements OnInit {   
     presidentsForm:FormGroup;
+    parties:Array<string>;
     constructor(public presidentialContract : PresidentialContract) {
         
     }
@@ -32,13 +34,14 @@ export class ReactiveFormsComponent implements OnInit {
                 this.presidentsForm = new FormGroup({
                     'lineItems': presidents
                 });
+                this.calculateListOfParties();
             }.bind(this),
             function(error){
                 console.log(error);
             });
     }
 
-    submit(): void {
+    calculatePresidentsFromForm():Array<President>{
         let presidents:President[] = [];
         let formArray:any = this.presidentsForm.controls['lineItems'];
         formArray.controls.forEach((formGroup:FormGroup):void => {
@@ -48,6 +51,11 @@ export class ReactiveFormsComponent implements OnInit {
             president.HasNonconsecutiveTerms = formGroup.controls['hasNonconsecutiveTerms'].value;
             presidents.push(president);
         });
+        return presidents;
+    }
+
+    submit(): void {
+        let presidents:President[] = this.calculatePresidentsFromForm();
         this.presidentialContract.setPresidents(presidents).toPromise().then(
             function(data) {
                 window.location.href = "/#/list";
@@ -55,5 +63,13 @@ export class ReactiveFormsComponent implements OnInit {
             function(error){
                 console.log(error);
             });
+    }
+
+    private calculateListOfParties():void{
+        this.parties = PresidentialSorterModule.CraftPartyList(this.calculatePresidentsFromForm());
+    }
+
+    private updateFillInTheBlankSister(fillInTheBlankSister:any, event:any){
+        fillInTheBlankSister.setValue(event.target.options[event.target.options.selectedIndex].value);
     }
 }

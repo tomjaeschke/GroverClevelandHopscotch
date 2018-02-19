@@ -17,9 +17,8 @@
                 <div class="lineLeft"></div>
                 <div class="split"></div>
                 <div class="lineMiddle"></div>
-                <div class="rightSideWrapper">
+                <div class="rightSideWrapperBase">
                     <div class="lineRight"></div>
-                    <div class="circle"></div>
                 </div>
             </div>
             <div class="lineItemContentWrapper">
@@ -29,14 +28,23 @@
                     </div>
                     <div class="lineItemContentPartyWrapper">
                         <div class="lineItemContentPartyInput">
-                            <input type="text" formControlName="party" />
+                            <input type="text" formControlName="party" (change)="calculateListOfParties()" />
                         </div>
                         <div class="lineItemContentPartySelect">
+                            <select (change)="updateFillInTheBlankSister(lineItem.controls['party'], $event)">
+                                <ng-container *ngFor="let party of parties">
+                                    <option *ngIf="lineItem.controls['party'].value !== party" [value]="party ? party : ''">{{party}}</option>
+                                    <option *ngIf="lineItem.controls['party'].value === party" [value]="party ? party : ''" selected>{{party}}</option>
+                                </ng-container>                       
+                            </select>
                         </div>
                     </div>
                     <div class="lineItemContentCheckbox">
                         <input type="checkbox" formControlName="hasNonconsecutiveTerms" />
                     </div> 
+                </div>
+                <div class="rightSideWrapperTop">
+                    <div class="circle"></div>
                 </div>
             </div>
         </div>
