@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { President } from '../models/president.model';
+import { PresidentPlus } from '../models/presidentPlus.model';
 import { PresidentialContract } from '../contracts/presidential.contract';
 import { FormsModule, ReactiveFormsModule, FormGroup, NgForm, FormArray, FormControl } from '@angular/forms';
 import { PresidentialSorterModule } from '../modules/presidentialSorter.module';
@@ -9,11 +10,10 @@ import { PresidentialSorterModule } from '../modules/presidentialSorter.module';
     styleUrls:  ['./reactiveForms.component.css']
 })
 export class ReactiveFormsComponent implements OnInit {   
-    presidentsForm:FormGroup;
+    cache:Array<President>;
+    presidentsForm:FormGroup; 
     parties:Array<string>;
-    constructor(public presidentialContract : PresidentialContract) {
-        
-    }
+    constructor(public presidentialContract : PresidentialContract) { }
 
     ngOnInit(): void{
         this.presidentsForm = new FormGroup({
@@ -21,24 +21,45 @@ export class ReactiveFormsComponent implements OnInit {
         });
         this.presidentialContract.getPresidents().toPromise().then(
             function(data) {
-                let presidents:FormArray = new FormArray([]);
-                data.forEach((president)=>{
-                    presidents.push(
-                        new FormGroup({
-                            'name': new FormControl(president.Name),
-                            'party': new FormControl(president.Party),
-                            'hasNonconsecutiveTerms': new FormControl(president.HasNonconsecutiveTerms)
-                        })
-                    );
-                });
-                this.presidentsForm = new FormGroup({
-                    'lineItems': presidents
-                });
-                this.calculateListOfParties();
+                this.cache = data;
+                this.renderOutList(data);
             }.bind(this),
             function(error){
                 console.log(error);
             });
+    }
+
+    updateCache(){
+        let counter = 0;
+        this.cache.forEach((datum) => {
+            datum.Name = this.presidentsForm.controls['lineItems']['controls'][counter]['controls']['name'].value;
+            datum.Party = this.presidentsForm.controls['lineItems']['controls'][counter]['controls']['party'].value;
+            counter++;
+        });
+    }
+
+    changeCheckbox(position:number) {
+        this.updateCache();
+        this.cache[position].HasNonconsecutiveTerms = !this.cache[position].HasNonconsecutiveTerms;
+        this.renderOutList(this.cache);
+    }
+
+    renderOutList(data:Array<President>):void {
+        let presidents:FormArray = new FormArray([]);
+        PresidentialSorterModule.FlattenFluffyList(PresidentialSorterModule.Sort(data)).forEach((president)=>{
+            presidents.push(
+                new FormGroup({
+                    'name': new FormControl(president.Name),
+                    'party': new FormControl(president.Party),
+                    'hasNonconsecutiveTerms': new FormControl(president.HasNonconsecutiveTerms),
+                    'positions': new FormControl(president.Positions)
+                })
+            );
+        });
+        this.presidentsForm = new FormGroup({
+            'lineItems': presidents
+        });
+        this.calculateListOfParties();
     }
 
     calculatePresidentsFromForm():Array<President>{
@@ -65,11 +86,19 @@ export class ReactiveFormsComponent implements OnInit {
             });
     }
 
+    moveUp(): void {
+        
+    }
+
+    moveDown(): void {
+        
+    }
+
     private calculateListOfParties():void{
         this.parties = PresidentialSorterModule.CraftPartyList(this.calculatePresidentsFromForm());
     }
 
-    private updateFillInTheBlankSister(fillInTheBlankSister:any, event:any){
+    private updateFillInTheBlankSister(fillInTheBlankSister:FormControl, event:any){
         fillInTheBlankSister.setValue(event.target.options[event.target.options.selectedIndex].value);
     }
 }

@@ -24,6 +24,27 @@
    display: table-cell;
    text-align: center;
    line-height: 26px;
+   color: #999999;
+}
+.circle a:link {
+   text-decoration: none;
+   color: #0000FF;
+   cursor: pointer;
+}
+.circle a:visited {
+   text-decoration: none;
+   color: #0000FF;
+   cursor: pointer;
+}
+.circle a:hover {
+   text-decoration: none;
+   color: #000000;
+   cursor: pointer;
+}
+.circle a:active {
+   text-decoration: none;
+   color: #0000FF;
+   cursor: pointer;
 }
 form {
     margin: 10px;
@@ -93,6 +114,7 @@ input[type=checkbox] {
     width: 550px;
     height: 60px;
     margin-top: -60px;
+    margin-left: 60px;
     z-index: 10;
     position: relative;
 }

@@ -84,12 +84,12 @@ export module PresidentialSorterModule {
             let president:PresidentPlus = MapPresidentToPresidentPlus(presidents[counter]);
             counter++;
             if(nonconsecutivePresidentBench) {               
-                nonconsecutivePresident = JSON.parse(JSON.stringify(nonconsecutivePresidentBench));       
+                nonconsecutivePresident = <PresidentPlus>JSON.parse(JSON.stringify(nonconsecutivePresidentBench));      
             } else {
                 nonconsecutivePresident = null;
             }            
             if(president.HasNonconsecutiveTerms) {
-                nonconsecutivePresidentBench = JSON.parse(JSON.stringify(president));
+                nonconsecutivePresidentBench = MapPresidentToPresidentPlus(<President>JSON.parse(JSON.stringify(president)));
             } else {
                 nonconsecutivePresidentBench = null;
             }
@@ -108,12 +108,12 @@ export module PresidentialSorterModule {
                     }
                 }
                 if (isEvenDeepInNonconsecutiveness) {
-                    output.push(nonconsecutivePresident);
+                    output.push(GuaranteeAmbiguousObjectIsPresidentPlus(nonconsecutivePresident));
                 }              
             }  
             output.push(president);
             if (nonconsecutivePresident && !isEvenDeepInNonconsecutiveness){
-                output.push(nonconsecutivePresident);
+                output.push(GuaranteeAmbiguousObjectIsPresidentPlus(nonconsecutivePresident));
             }         
         });
         if(output[output.length-1].Name != presidents[presidents.length-1].Name){
@@ -126,7 +126,31 @@ export module PresidentialSorterModule {
         counter = 0;
         output.forEach((spot:PresidentPlus): void => {
             counter++;
-            spot.ImmediatePosition = counter;
+            spot.Positions.push(counter);
+            if (spot.HasNonconsecutiveTerms) {
+                if (counter > 2) {
+                    if (spot.Name == output[counter-3].Name){
+                        spot.Positions.unshift(counter-2);
+                        output[counter-3].Positions.push(counter);
+                    }
+                }
+            }
+        });
+        return output;
+    }
+
+    export function FlattenFluffyList(presidents:Array<PresidentPlus>):Array<PresidentPlus> {
+        let output:Array<PresidentPlus> = new Array<PresidentPlus>();
+        let counter:number = 0;
+        presidents.forEach((president) => {
+            if (counter > 1) {
+                if (president.Name != presidents[counter-2].Name){
+                    output.push(president);
+                }
+            } else {
+                output.push(president);
+            }
+            counter++;
         });
         return output;
     }
@@ -137,7 +161,17 @@ export module PresidentialSorterModule {
         presidentPlus.Party = president.Party;
         presidentPlus.HasNonconsecutiveTerms = president.HasNonconsecutiveTerms;
         presidentPlus.IsCurrentPresident = false;
-        presidentPlus.ImmediatePosition = 0;
+        presidentPlus.Positions = new Array<number>();
+        return presidentPlus;
+    }
+
+    function GuaranteeAmbiguousObjectIsPresidentPlus(ambiguousObject:any):PresidentPlus{
+        let presidentPlus:PresidentPlus = new PresidentPlus();
+        presidentPlus.Name = ambiguousObject.Name;
+        presidentPlus.Party = ambiguousObject.Party;
+        presidentPlus.HasNonconsecutiveTerms = ambiguousObject.HasNonconsecutiveTerms;
+        presidentPlus.IsCurrentPresident = ambiguousObject.IsCurrentPresident;
+        presidentPlus.Positions = ambiguousObject.Positions;
         return presidentPlus;
     }
 }
