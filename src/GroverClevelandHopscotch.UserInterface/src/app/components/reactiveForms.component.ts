@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { President } from '../models/president.model';
 import { PresidentPlus } from '../models/presidentPlus.model';
 import { PresidentialContract } from '../contracts/presidential.contract';
@@ -10,6 +10,7 @@ import { PresidentialSorterModule } from '../modules/presidentialSorter.module';
     styleUrls:  ['./reactiveForms.component.css']
 })
 export class ReactiveFormsComponent implements OnInit {   
+    @ViewChild('newItem') newItem: ElementRef; 
     cache:Array<President>;
     presidentsForm:FormGroup; 
     parties:Array<string>;
@@ -73,6 +74,25 @@ export class ReactiveFormsComponent implements OnInit {
             presidents.push(president);
         });
         return presidents;
+    }
+
+    add(): void {
+        if (this.newItem.nativeElement.value) {
+            this.updateCache();
+            let president:President = new President;
+            president.Name = this.newItem.nativeElement.value;
+            president.Party = "";
+            president.HasNonconsecutiveTerms = false;
+            this.cache.push(president);     
+            this.renderOutList(this.cache);
+            this.newItem.nativeElement.value = "";
+        }   
+    }
+
+    delete(): void {
+        this.updateCache();
+        this.cache = this.cache.slice(0,this.cache.length - 1);
+        this.renderOutList(this.cache);
     }
 
     submit(): void {
