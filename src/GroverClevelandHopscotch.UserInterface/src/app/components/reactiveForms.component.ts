@@ -30,18 +30,18 @@ export class ReactiveFormsComponent implements OnInit {
             });
     }
 
-    updateCache(){
+    updateCache(isToUpdateEverything?:boolean){
         let counter = 0;
         this.cache.forEach((datum) => {
             datum.Name = this.presidentsForm.controls['lineItems']['controls'][counter]['controls']['name'].value;
             datum.Party = this.presidentsForm.controls['lineItems']['controls'][counter]['controls']['party'].value;
+            datum.HasNonconsecutiveTerms = this.presidentsForm.controls['lineItems']['controls'][counter]['controls']['hasNonconsecutiveTerms'].value;
             counter++;
         });
     }
 
     changeCheckbox(position:number) {
         this.updateCache();
-        this.cache[position].HasNonconsecutiveTerms = !this.cache[position].HasNonconsecutiveTerms;
         this.renderOutList(this.cache);
     }
 
@@ -106,12 +106,37 @@ export class ReactiveFormsComponent implements OnInit {
             });
     }
 
-    moveUp(): void {
-        
+    moveUp(position:number): void {
+        this.move(position, true);
     }
 
-    moveDown(): void {
-        
+    moveDown(position:number): void {
+        this.move(position, false);
+    }
+
+    private move(position:number,isToMoveUpwards:boolean){
+        let dancePartner:number;
+        if (isToMoveUpwards) {
+            dancePartner = position - 1;
+        } else {
+            dancePartner = position + 1;
+        }
+        this.updateCache();
+        let revampArray: Array<President> = new Array<President>();
+        let counter = 0;
+        while (counter < this.cache.length) {
+            if (counter !== position) {
+                if(dancePartner === counter) {
+                    if (!isToMoveUpwards) revampArray.push(this.cache[dancePartner]);
+                    revampArray.push(this.cache[position]);
+                    if (isToMoveUpwards) revampArray.push(this.cache[dancePartner]);
+                } else {
+                    revampArray.push(this.cache[counter]);
+                }
+            }
+            counter ++;
+        }
+        this.renderOutList(revampArray);
     }
 
     private calculateListOfParties():void{

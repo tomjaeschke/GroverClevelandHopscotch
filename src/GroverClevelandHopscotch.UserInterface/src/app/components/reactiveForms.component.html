@@ -18,7 +18,7 @@
                         {{lineItem.controls['positions'].value[0]}}
                     </ng-container>
                     <ng-container *ngIf="i != 0">
-                        <a (click)="moveUp()" href="javascript:void(0)">{{lineItem.controls['positions'].value[0]}}</a>
+                        <a (click)="moveUp(i)" href="javascript:void(0)">{{lineItem.controls['positions'].value[0]}}</a>
                     </ng-container>
                 </div>
                 <div class="lineLeft"></div>
@@ -57,7 +57,7 @@
                                 {{lineItem.controls['positions'].value[1]}}
                             </ng-container>
                             <ng-container *ngIf="i != (presidentsForm.get('lineItems').controls.length - 1)">
-                                <a (click)="moveDown()" href="javascript:void(0)">{{lineItem.controls['positions'].value[1]}}</a>
+                                <a (click)="moveDown(i)" href="javascript:void(0)">{{lineItem.controls['positions'].value[1]}}</a>
                             </ng-container>
                         </ng-container>
                         <ng-container *ngIf="lineItem.controls['positions'].value.length === 1">
