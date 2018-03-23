@@ -1,6 +1,10 @@
 import { President } from '../models/president.model';
 import { PresidentPlus } from '../models/presidentPlus.model';
 export module PresidentialSorterModule {
+    export function GiveFailureMessage(): string {
+        return "Names cannot be dupes nor empty! Acceptable characters for inputs are letters, periods, and spaces only.";
+    }
+    
     export function CraftPartyList(presidents:Array<President>): Array<string>{
         let parties:Array<string>;
         if (presidents.length > 1){
@@ -48,7 +52,7 @@ export module PresidentialSorterModule {
             if (!president.Name) {
                 isBadName = true;
             } else {
-                if (!president.Name.trim()) isBadName = true;
+                if (!IsRegexMatch(president.Name)) isBadName = true;
             }
             sortedPresidents.push(JSON.parse(JSON.stringify(president)));
         });
@@ -70,6 +74,18 @@ export module PresidentialSorterModule {
             namePlaceholder = sortedPresident.Name;
         });
         if (isBadName) return true;
+        return false;
+    }
+
+    export function IsBadParty(presidents:Array<President>):Boolean {
+        let sortedPresidents = new Array<President>();
+        let isBadParty:Boolean = false;
+        presidents.forEach((president) => {
+            if (president.Party) {
+                if (!IsRegexMatch(president.Party)) isBadParty = true;
+            }
+        });
+        if (isBadParty) return true;
         return false;
     }
     
@@ -173,5 +189,11 @@ export module PresidentialSorterModule {
         presidentPlus.IsCurrentPresident = ambiguousObject.IsCurrentPresident;
         presidentPlus.Positions = ambiguousObject.Positions;
         return presidentPlus;
+    }
+
+    function IsRegexMatch(subject:string):boolean {
+        let regExPattern = /^([A-Za-z\.]+[\s]*)+$/;
+        let isMatch = !!subject.match(regExPattern);
+        return isMatch;
     }
 }

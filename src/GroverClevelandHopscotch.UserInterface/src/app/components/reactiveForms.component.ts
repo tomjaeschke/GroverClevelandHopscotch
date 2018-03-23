@@ -97,13 +97,21 @@ export class ReactiveFormsComponent implements OnInit {
 
     submit(): void {
         let presidents:President[] = this.calculatePresidentsFromForm();
-        this.presidentialContract.setPresidents(presidents).toPromise().then(
-            function(data) {
-                window.location.href = "/#/list";
-            }.bind(this),
-            function(error){
-                console.log(error);
-            });
+        if(PresidentialSorterModule.IsBadName(presidents)){
+            alert(PresidentialSorterModule.GiveFailureMessage());
+        } else {
+            if(PresidentialSorterModule.IsBadParty(presidents)){
+                alert(PresidentialSorterModule.GiveFailureMessage());
+            } else {
+            this.presidentialContract.setPresidents(presidents).toPromise().then(
+                function(data) {
+                    window.location.href = "/#/list";
+                }.bind(this),
+                function(error){
+                    console.log(error);
+                });
+            }
+        }
     }
 
     moveUp(position:number): void {

@@ -27,7 +27,7 @@ export class SuperSimpleFormComponent implements OnInit {
 
     public pushToServer():void{
         if(PresidentialSorterModule.IsBadName(this.presidents)){
-            alert ("Names cannot be dupes nor empty!");
+            alert(PresidentialSorterModule.GiveFailureMessage());
         } else {
             this.presidentialContract.setPresidents(this.presidents).toPromise().then(
                 function(data) {
