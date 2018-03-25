@@ -77,16 +77,24 @@ export class ReactiveFormsComponent implements OnInit {
     }
 
     add(): void {
-        if (this.newItem.nativeElement.value) {
-            this.updateCache();
-            let president:President = new President;
-            president.Name = this.newItem.nativeElement.value;
-            president.Party = "";
-            president.HasNonconsecutiveTerms = false;
-            this.cache.push(president);     
-            this.renderOutList(this.cache);
-            this.newItem.nativeElement.value = "";
-        }   
+        let presidents:President[] = this.calculatePresidentsFromForm();
+        let president = new President();
+        president.Name = this.newItem.nativeElement.value;
+        president.Party = "";
+        president.HasNonconsecutiveTerms = false;
+        presidents.push(president);
+        if(PresidentialSorterModule.IsBadName(presidents)){
+            alert(PresidentialSorterModule.GiveFailureMessage());
+        } else {
+            if(PresidentialSorterModule.IsBadParty(presidents)){
+                alert(PresidentialSorterModule.GiveFailureMessage());
+            } else {
+                this.updateCache();
+                this.cache.push(president);     
+                this.renderOutList(this.cache);
+                this.newItem.nativeElement.value = "";
+            }
+        }  
     }
 
     delete(): void {
