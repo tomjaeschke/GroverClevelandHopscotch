@@ -1,4 +1,4 @@
-3/25/2018 31st commit 
-I am running a sanity check before allowing an addition at the reactive form. Not doing so opened the door to a bug. 
+6/16/2018 32nd commit 
+Let's do Angular 6! It's time y'all.
 
 There are really two apps here. An Angular app at \src\GroverClevelandHopscotch.UserInterface\src\ running at http://localhost:4200/ will try to crosstalk with a REST API app run from the Visual Studio 2017 solution at \src\GroverClevelandHopscotch.sln at http://localhost:58220/ and that means that http://localhost:58220/ has to exist in a configuration file somewhere right? That file is at \src\GroverClevelandHopscotch.UserInterface\src\configuration.ts should you need to change it. Otherwise there should be little to configure. There is no database or anything like that. There is a flat file at \src\GroverClevelandHopscotch.Infrastructure\BackingStore.csv that is my pseudodatabase. Don't put silly permission restrictions on it please. Enjoy.

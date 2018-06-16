@@ -1,4 +1,4 @@
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { TimeMessage } from '../models/timeMessage.model';
 export class TimeContract {
    constructor() {}

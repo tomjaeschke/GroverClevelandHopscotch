@@ -1,4 +1,4 @@
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { IpAddress } from '../models/ipAddress.model';
 export class IpContract {
    constructor() {}

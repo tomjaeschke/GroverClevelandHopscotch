@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs/observable';
+import { Observable } from 'rxjs';
 import { TimeMessage } from '../models/timeMessage.model';
 import { TimeContract } from '../contracts/time.contract';
 @Component({

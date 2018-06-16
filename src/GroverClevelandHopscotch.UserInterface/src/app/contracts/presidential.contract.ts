@@ -1,4 +1,4 @@
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { President } from '../models/president.model';
 export class PresidentialContract {
    constructor() {}

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs/observable';
+import { Observable } from 'rxjs';
 import { IpAddress } from '../models/ipAddress.model';
 import { IpContract } from '../contracts/ip.contract';
 @Component({

@@ -11,7 +11,6 @@ import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
-import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { LayoutComponent } from '../layout/layout.component';
 import { MenuComponent } from '../layout/menu.component';
 import { HomeComponent } from '../components/home.component';

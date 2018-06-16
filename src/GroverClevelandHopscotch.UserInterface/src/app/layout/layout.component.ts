@@ -5,5 +5,5 @@ import { Observable } from 'rxjs/observable';
     templateUrl: './layout.component.html'
 })
 export class LayoutComponent { 
-
+    
 }

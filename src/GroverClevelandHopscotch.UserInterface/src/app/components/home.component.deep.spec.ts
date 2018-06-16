@@ -8,7 +8,7 @@ import { IpContract } from '../contracts/ip.contract';
 import { IpContractStub } from '../contracts/ip.contract.stub';
 import { ActivatedRoute } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 describe('HomeComponent (deep)', () => {
     let fixture: ComponentFixture<HomeComponent>;

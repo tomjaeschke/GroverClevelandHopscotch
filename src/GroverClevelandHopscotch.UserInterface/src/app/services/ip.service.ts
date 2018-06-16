@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { Configuration } from '../../configuration';
 import { HttpClient } from '@angular/common/http';
 import { IpAddress } from '../models/ipAddress.model';
