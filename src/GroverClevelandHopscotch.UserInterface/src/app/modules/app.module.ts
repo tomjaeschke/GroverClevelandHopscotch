@@ -29,6 +29,8 @@ import { PresidentialContract } from '../contracts/presidential.contract';
 import { PresidentialService } from '../services/presidential.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { MaterialsListComponent } from '../components/materialsList.component';
+import { MatInputModule, MatPaginatorModule, MatProgressSpinnerModule,  MatSortModule, MatTableModule } from "@angular/material";
 
 @NgModule({
   imports: [
@@ -47,7 +49,8 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
     ClockComponent,
     ListComponent,
     ReactiveFormsComponent,
-    SuperSimpleFormComponent
+    SuperSimpleFormComponent,
+    MaterialsListComponent
   ],
   bootstrap: [ LayoutComponent ],
   providers: [ 

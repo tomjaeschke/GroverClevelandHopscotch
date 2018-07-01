@@ -19,6 +19,6 @@ export class PresidentialService implements PresidentialContract {
         let route: string = this.configuration.routeToApi + "api/president";
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
-        return this.http.put(route, presidents, options).map((response: Response) => <Boolean>response.json());;
+        return this.http.put(route, presidents, options);
     }
 }

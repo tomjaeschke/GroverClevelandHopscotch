@@ -15,7 +15,9 @@ export class MenuComponent {
                 this.whereAmI = 'home';
             } else {
                 this.isNotHome = true;
-                this.whereAmI = event.url.split("/")[1];
+                if (event.url) {
+                    this.whereAmI = event.url.split("/")[1];
+                }                
             }
         });
     }
