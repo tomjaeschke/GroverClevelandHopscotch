@@ -39,7 +39,12 @@ import { MatInputModule, MatPaginatorModule, MatProgressSpinnerModule,  MatSortM
     ReactiveFormsModule,
     HttpModule,
     HttpClientModule,
-    routing
+    routing,
+    MatInputModule,
+    MatPaginatorModule,
+    MatProgressSpinnerModule,
+    MatSortModule,
+    MatTableModule 
   ],
   declarations: [
     LayoutComponent,

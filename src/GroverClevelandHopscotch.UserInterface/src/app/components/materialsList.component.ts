@@ -7,7 +7,8 @@ import { PresidentialContract } from '../contracts/presidential.contract';
     styleUrls:  ['./materialsList.component.css']
 })
 export class MaterialsListComponent implements OnInit {
-    presidents:Array<President>;
+    public presidents:Array<President>;
+    private displayedColumns = ["Name", "Party", "HasNonconsecutiveTerms"];
 
     ngOnInit(): void{
         this.presidentialContract.getPresidents().toPromise().then(
