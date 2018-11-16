@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using GroverClevelandHopscotch.Core.Interfaces;
 using GroverClevelandHopscotch.Core.Objects;
 namespace GroverClevelandHopscotch.Infrastructure.Dependencies
@@ -18,7 +17,12 @@ namespace GroverClevelandHopscotch.Infrastructure.Dependencies
                 using (StreamReader streamReader = new StreamReader(fileStream))
                 {
                     List<President> presidents = new List<President>() { };
-                    foreach (string scrapping in streamReader.ReadToEnd().Split("\r\n"))
+                    string concatenation = streamReader.ReadToEnd();
+                    if (concatenation.Contains("\n") && !concatenation.Contains("\r\n"))
+                    {
+                        concatenation = concatenation.Replace("\n","\r\n");
+                    }
+                    foreach (string scrapping in concatenation.Split("\r\n"))
                     {
                         President president = new President();
                         string[] scrappings = scrapping.Split(",");

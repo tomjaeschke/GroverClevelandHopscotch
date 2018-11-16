@@ -1,4 +1,5 @@
-﻿using GroverClevelandHopscotch.Core.Interfaces;
+﻿using System;
+using GroverClevelandHopscotch.Core.Interfaces;
 namespace GroverClevelandHopscotch.Core.Objects
 {
     public class IpAddressWrapper
@@ -7,7 +8,14 @@ namespace GroverClevelandHopscotch.Core.Objects
 
         public IpAddressWrapper(IIpMechanics ipMechanics)
         {
-            Ip = ipMechanics.GetIpAddress();
+            try
+            {
+                Ip = ipMechanics.GetIpAddress();
+            }
+            catch(Exception exception)
+            {
+                Ip = "";
+            }
         }
     }
 }

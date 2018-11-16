@@ -6,7 +6,7 @@ namespace GroverClevelandHopscotch.Core.Tests.Interfaces
     {
         public DateTime GetTime()
         {
-            return new DateTime(2017,11,23,20,6,7);
+            return new DateTime(2017, 11, 23, 20, 6, 7);
         }
     }
 }

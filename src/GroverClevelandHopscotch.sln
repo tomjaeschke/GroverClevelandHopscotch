@@ -7,9 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GroverClevelandHopscotch.Re
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GroverClevelandHopscotch.Core", "GroverClevelandHopscotch.Core\GroverClevelandHopscotch.Core.csproj", "{2AAFDE8C-2C2E-4DEC-8514-0515B7FE513D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroverClevelandHopscotch.Infrastructure", "GroverClevelandHopscotch.Infrastructure\GroverClevelandHopscotch.Infrastructure.csproj", "{1B3B18FB-DE98-4635-B7D5-05034D03664B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GroverClevelandHopscotch.Infrastructure", "GroverClevelandHopscotch.Infrastructure\GroverClevelandHopscotch.Infrastructure.csproj", "{1B3B18FB-DE98-4635-B7D5-05034D03664B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroverClevelandHopscotch.Core.Tests", "GroverClevelandHopscotch.Core.Tests\GroverClevelandHopscotch.Core.Tests.csproj", "{6ED168EA-D273-44A0-85E4-A26DD5195028}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroverClevelandHopscotch.Core.Tests", "GroverClevelandHopscotch.Core.Tests\GroverClevelandHopscotch.Core.Tests.csproj", "{9A15DB04-A56F-4FE0-89C6-8D15BF8CEC52}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{1B3B18FB-DE98-4635-B7D5-05034D03664B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B3B18FB-DE98-4635-B7D5-05034D03664B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1B3B18FB-DE98-4635-B7D5-05034D03664B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6ED168EA-D273-44A0-85E4-A26DD5195028}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6ED168EA-D273-44A0-85E4-A26DD5195028}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6ED168EA-D273-44A0-85E4-A26DD5195028}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6ED168EA-D273-44A0-85E4-A26DD5195028}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A15DB04-A56F-4FE0-89C6-8D15BF8CEC52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A15DB04-A56F-4FE0-89C6-8D15BF8CEC52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A15DB04-A56F-4FE0-89C6-8D15BF8CEC52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A15DB04-A56F-4FE0-89C6-8D15BF8CEC52}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
