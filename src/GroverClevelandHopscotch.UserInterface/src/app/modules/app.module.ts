@@ -7,7 +7,7 @@ import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
-import { NgModule }      from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
@@ -31,39 +31,52 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { MaterialsListComponent } from '../components/materialsList.component';
 import { MatInputModule, MatPaginatorModule, MatProgressSpinnerModule,  MatSortModule, MatTableModule } from "@angular/material";
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { ModalComponent } from '../layout/modal.component';
+import { ModalContract } from '../contracts/modal.contract';
+import { ModalService } from '../services/modal.service';
 
 @NgModule({
-  imports: [
-    BrowserModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpModule,
-    HttpClientModule,
-    routing,
-    MatInputModule,
-    MatPaginatorModule,
-    MatProgressSpinnerModule,
-    MatSortModule,
-    MatTableModule 
-  ],
-  declarations: [
-    LayoutComponent,
-    MenuComponent,
-    IpComponent,
-    HomeComponent,
-    ClockComponent,
-    ListComponent,
-    ReactiveFormsComponent,
-    SuperSimpleFormComponent,
-    MaterialsListComponent
-  ],
-  bootstrap: [ LayoutComponent ],
-  providers: [ 
-    Configuration,
-    {provide: IpContract, useClass: IpService},
-    {provide: TimeContract, useClass: TimeService},
-    {provide: PresidentialContract, useClass: PresidentialService},
-    {provide: LocationStrategy, useClass: HashLocationStrategy}
-  ]
+	imports: [
+		BrowserModule,
+		FormsModule,
+		ReactiveFormsModule,
+		HttpModule,
+		HttpClientModule,
+		routing,
+		MatInputModule,
+		MatPaginatorModule,
+		MatProgressSpinnerModule,
+		MatSortModule,
+		MatTableModule,
+		BrowserAnimationsModule,
+		NoopAnimationsModule
+	],
+	declarations: [
+		LayoutComponent,
+		MenuComponent,
+		IpComponent,
+		HomeComponent,
+		ClockComponent,
+		ListComponent,
+		ReactiveFormsComponent,
+		SuperSimpleFormComponent,
+		MaterialsListComponent,
+		ModalComponent
+	],
+	bootstrap: [ LayoutComponent ],
+	providers: [
+		Configuration,
+		{provide: IpContract, useClass: IpService},
+		{provide: TimeContract, useClass: TimeService},
+		{provide: PresidentialContract, useClass: PresidentialService},
+		{provide: ModalContract, useClass: ModalService},
+		{provide: LocationStrategy, useClass: HashLocationStrategy}
+	],
+	entryComponents: [
+		ModalComponent
+	]
 })
+
+
 export class AppModule {}

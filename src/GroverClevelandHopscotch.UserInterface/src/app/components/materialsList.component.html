@@ -1,18 +1,19 @@
 <div id="wrapper">
-    <mat-table class="lessons-table mat-elevation-z8" [dataSource]="presidents">
-        <ng-container matColumnDef="Name">
-            <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
-            <mat-cell *matCellDef="let president">{{president.Name}}</mat-cell>
-        </ng-container>
-        <ng-container matColumnDef="Party">
-            <mat-header-cell *matHeaderCellDef>Party</mat-header-cell>
-            <mat-cell class="description-cell" *matCellDef="let president">{{president.Party}}</mat-cell>
-        </ng-container>
-        <ng-container matColumnDef="HasNonconsecutiveTerms">
-            <mat-header-cell *matHeaderCellDef>HasNonconsecutiveTerms</mat-header-cell>
-            <mat-cell class="duration-cell" *matCellDef="let president">{{president.HasNonconsecutiveTerms}}</mat-cell>
-        </ng-container>
-        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
-    </mat-table>
+	<table mat-table class="lessons-table mat-elevation-z8" [dataSource]="dataSource">
+		<ng-container matColumnDef="Name">
+			<th mat-header-cell *matHeaderCellDef>Name</th>
+			<td (click)="openModal(president)" mat-cell *matCellDef="let president">{{president.Name}}</td>
+		</ng-container>
+		<ng-container matColumnDef="Party">
+			<th mat-header-cell *matHeaderCellDef>Party</th>
+			<td mat-cell class="description-cell" *matCellDef="let president">{{president.Party}}</td>
+		</ng-container>
+		<ng-container matColumnDef="HasNonconsecutiveTerms">
+			<th mat-header-cell *matHeaderCellDef>HasNonconsecutiveTerms</th>
+			<td mat-cell class="duration-cell" *matCellDef="let president">{{president.HasNonconsecutiveTerms}}</td>
+		</ng-container>
+		<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+		<tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+	</table>
+	<mat-paginator [pageSizeOptions]="[10]" showFirstLastButtons></mat-paginator>
 </div>

@@ -14,6 +14,7 @@ export class ReactiveFormsComponent implements OnInit {
     cache:Array<President>;
     presidentsForm:FormGroup; 
     parties:Array<string>;
+    isToShowControls:boolean;
     constructor(public presidentialContract : PresidentialContract) { }
 
     ngOnInit(): void{
@@ -61,6 +62,7 @@ export class ReactiveFormsComponent implements OnInit {
             'lineItems': presidents
         });
         this.calculateListOfParties();
+        this.isToShowControls = true;
     }
 
     calculatePresidentsFromForm():Array<President>{

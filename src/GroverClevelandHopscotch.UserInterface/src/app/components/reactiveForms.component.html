@@ -68,7 +68,7 @@
             </div>
         </div>
     </ng-container> 
-    <div id="bottomWrapper">
+    <div id="bottomWrapper" *ngIf="isToShowControls">
         <div id="bottomControls">
             <input type="text" #newItem /> <button (click)="add()">add new</button> <button (click)="delete()">delete last</button> <button (click)="submit()">save all</button>
         </div>
