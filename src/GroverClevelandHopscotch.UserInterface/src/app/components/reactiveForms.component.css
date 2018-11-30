@@ -14,6 +14,9 @@
     width: 508px;
     height: 60px;
 }
+button {
+    margin-left: 3px;
+}
 .circle {
    width: 30px;
    height: 30px;

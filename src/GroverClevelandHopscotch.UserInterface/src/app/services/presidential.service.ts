@@ -14,7 +14,6 @@ export class PresidentialService implements PresidentialContract {
         return this.httpClient.get<Array<President>>(route,{});
     }
 
-
     setPresidents(presidents:Array<President>):Observable<any>{
         let route: string = this.configuration.routeToApi + "api/president";
         let headers = new Headers({ 'Content-Type': 'application/json' });

@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { President } from '../models/president.model';
 
 @Component({
@@ -8,11 +8,10 @@ import { President } from '../models/president.model';
 })
 
 export class ModalComponent {
-    public president: President;
-	public closeAction: () => {};
+    //@Inject(CONTAINER_DATA) public componentData: any
 
 	constructor(){
-		
+
 	}
 
 	close() {

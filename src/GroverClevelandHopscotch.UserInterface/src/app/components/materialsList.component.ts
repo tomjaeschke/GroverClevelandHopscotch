@@ -34,7 +34,7 @@ export class MaterialsListComponent implements OnInit {
 	}
 
 	constructor(public presidentialContract: PresidentialContract, public modalContract: ModalContract) {
-
+		
 	}
 
 	openModal(president:President): void {
