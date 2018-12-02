@@ -18,6 +18,7 @@ export class ModalService implements OnDestroy {
     public open(president:President) { 
         const filePreviewPortal = new ComponentPortal(ModalComponent); 
         if (!this.backingStore) this.backingStore = new ModalMetadata(); 
+        this.backingStore.id = president.Name;
         this.backingStore.president = president; 
         if (!this.backingStore.overlayRef) { 
             this.backingStore.overlayRef = this.overlay.create(); 

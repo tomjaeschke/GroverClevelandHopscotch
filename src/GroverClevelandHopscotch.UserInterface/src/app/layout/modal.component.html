@@ -1,1 +1,12 @@
-{{ modalMetadata.president.Name}}... <a (click)="close()">X</a>
+<div id="outerWrapper">
+    <input [value]="modalMetadata.president.Name" type="text" />
+    <div id="middleWrapper">
+        <div id="innerWrapperLeft">
+        </div>
+        <div id="innerWrapperRight">
+            <a (click)="close()">(close)</a>
+            <input type="checkbox" [checked]="modalMetadata.president.HasNonconsecutiveTerms"/> hops
+        </div>      
+    </div>       
+    <input [value]="modalMetadata.president.Party" type="text" />
+</div>
