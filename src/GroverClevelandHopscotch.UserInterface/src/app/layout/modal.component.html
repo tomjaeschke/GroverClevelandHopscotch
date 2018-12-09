@@ -1,12 +1,24 @@
 <div id="outerWrapper">
-    <input [value]="modalMetadata.president.Name" type="text" />
+    <input [value]="modalMetadata.president.Name" type="text" #opener />
     <div id="middleWrapper">
         <div id="innerWrapperLeft">
+            <div id="hat" #hat></div>
+            <div id="face" #face>
+                <div id="eyeLeft"></div>
+                <div id="eyeRight"></div>
+                <div id="moustache"></div>
+            </div>
+            <button #add>Add</button>
+            <button #update>Update</button>
+            <button #delete (click)="deleteClick()">Delete</button>
+            <button #yes>Yes</button>
+            <button #no (click)="noClick()">No</button>
         </div>
         <div id="innerWrapperRight">
             <a (click)="close()">(close)</a>
             <input type="checkbox" [checked]="modalMetadata.president.HasNonconsecutiveTerms"/> hops
         </div>      
     </div>       
-    <input [value]="modalMetadata.president.Party" type="text" />
+    <input [value]="modalMetadata.president.Party" type="text" #closer />
+    <input value="Are you sure?" type="text" readonly #sure />
 </div>
