@@ -7,21 +7,21 @@ import { ModalContract } from '../contracts/modal.contract';
     styleUrls:  ['./modal.component.css'] 
 }) 
 export class ModalComponent implements OnInit { 
-    @ViewChild('add') add: ElementRef<HTMLElement, any>;   
-    @ViewChild('closer') closer: ElementRef<HTMLElement, any>;
-    @ViewChild('delete') delete: ElementRef<HTMLElement, any>;
-    @ViewChild('face') face: ElementRef<HTMLElement, any>;
-    @ViewChild('hat') hat: ElementRef<HTMLElement, any>;
+    @ViewChild('add') add: ElementRef<HTMLElement>;   
+    @ViewChild('closer') closer: ElementRef<HTMLElement>;
+    @ViewChild('delete') delete: ElementRef<HTMLElement>;
+    @ViewChild('face') face: ElementRef<HTMLElement>;
+    @ViewChild('hat') hat: ElementRef<HTMLElement>;
     private modalMetadata: ModalMetadata;
-    @ViewChild('no') no: ElementRef<HTMLElement, any>;
-    @ViewChild('opener') opener: ElementRef<HTMLElement, any>;
-    @ViewChild('sure') sure: ElementRef<HTMLElement, any>;
-    @ViewChild('update') update: ElementRef<HTMLElement, any>;
-    @ViewChild('yes') yes: ElementRef<HTMLElement, any>;
+    @ViewChild('no') no: ElementRef<HTMLElement>;
+    @ViewChild('opener') opener: ElementRef<HTMLFormElement>;
+    @ViewChild('sure') sure: ElementRef<HTMLElement>;
+    @ViewChild('update') update: ElementRef<HTMLElement>;
+    @ViewChild('yes') yes: ElementRef<HTMLElement>;
 
     constructor(public modalContract: ModalContract) {}
 
-    ngOnInit() { 
+    ngOnInit() {
         this.modalMetadata = this.modalContract.getSingletonState();
         if (this.modalMetadata.id) {
             this.add.nativeElement.style.display = "none";
@@ -41,11 +41,19 @@ export class ModalComponent implements OnInit {
         this.modalMetadata.closeAction(); 
     }
 
-    deleteClick():void {
-        
+    deleteClick() {
+        this.closer.nativeElement.style.display = "none";
+        this.delete.nativeElement.style.display = "none";
+        this.face.nativeElement.style.display = "none";
+        this.hat.nativeElement.style.display = "none";
+        this.no.nativeElement.style.display = "inline";
+        this.opener.nativeElement.readOnly = "true";
+        this.sure.nativeElement.style.display = "block";
+        this.update.nativeElement.style.display = "none";
+        this.yes.nativeElement.style.display = "inline"; 
     }
 
-    noClick():void {
+    noClick() {
 
     }
 }
