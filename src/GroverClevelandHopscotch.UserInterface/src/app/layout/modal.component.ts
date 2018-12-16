@@ -7,11 +7,12 @@ import { ModalContract } from '../contracts/modal.contract';
     styleUrls:  ['./modal.component.css'] 
 }) 
 export class ModalComponent implements OnInit { 
-    @ViewChild('add') add: ElementRef<HTMLElement>;   
+    @ViewChild('add') add: ElementRef<HTMLElement>; 
     @ViewChild('closer') closer: ElementRef<HTMLElement>;
     @ViewChild('delete') delete: ElementRef<HTMLElement>;
     @ViewChild('face') face: ElementRef<HTMLElement>;
     @ViewChild('hat') hat: ElementRef<HTMLElement>;
+    public isCheckboxDisabled: boolean;
     private modalMetadata: ModalMetadata;
     @ViewChild('no') no: ElementRef<HTMLElement>;
     @ViewChild('opener') opener: ElementRef<HTMLFormElement>;
@@ -46,6 +47,7 @@ export class ModalComponent implements OnInit {
         this.delete.nativeElement.style.display = "none";
         this.face.nativeElement.style.display = "none";
         this.hat.nativeElement.style.display = "none";
+        this.isCheckboxDisabled = true;
         this.no.nativeElement.style.display = "inline";
         this.opener.nativeElement.readOnly = "true";
         this.sure.nativeElement.style.display = "block";

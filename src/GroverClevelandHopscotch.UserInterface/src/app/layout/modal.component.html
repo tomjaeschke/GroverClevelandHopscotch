@@ -16,7 +16,7 @@
         </div>
         <div id="innerWrapperRight">
             <a (click)="close()">(close)</a>
-            <input type="checkbox" [checked]="modalMetadata.president.HasNonconsecutiveTerms" /> hops
+            <input type="checkbox" [checked]="modalMetadata.president.HasNonconsecutiveTerms" [disabled]="isCheckboxDisabled" /> hops
         </div>      
     </div>       
     <input [value]="modalMetadata.president.Party" type="text" #closer />
