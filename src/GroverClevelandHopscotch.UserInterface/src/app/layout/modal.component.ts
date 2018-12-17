@@ -56,6 +56,15 @@ export class ModalComponent implements OnInit {
     }
 
     noClick() {
-
+        this.closer.nativeElement.style.display = "block";
+        this.delete.nativeElement.style.display = "inline";
+        this.face.nativeElement.style.display = "block";
+        this.hat.nativeElement.style.display = "block";
+        this.isCheckboxDisabled = false;
+        this.no.nativeElement.style.display = "none";
+        this.opener.nativeElement.readOnly = "";
+        this.sure.nativeElement.style.display = "none";
+        this.update.nativeElement.style.display = "inline";
+        this.yes.nativeElement.style.display = "none"; 
     }
 }
