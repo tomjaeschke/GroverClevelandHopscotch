@@ -2,7 +2,7 @@ import { President } from '../models/president.model';
 import { PresidentPlus } from '../models/presidentPlus.model';
 export module PresidentialSorterModule {
     export function GiveFailureMessage(): string {
-        return "Names cannot be dupes nor empty! Acceptable characters for inputs are letters, periods, and spaces only.";
+        return "Names cannot be dupes nor empty! Letters, periods, and spaces are acceptable characters. A person's name may have single quotes and hyphens but a party name cannot.";
     }
     
     export function CraftPartyList(presidents:Array<President>): Array<string>{
@@ -52,7 +52,7 @@ export module PresidentialSorterModule {
             if (!president.Name) {
                 isBadName = true;
             } else {
-                if (!IsRegexMatch(president.Name)) isBadName = true;
+                if (!IsRegexMatchForName(president.Name)) isBadName = true;
             }
             sortedPresidents.push(JSON.parse(JSON.stringify(president)));
         });
@@ -82,7 +82,7 @@ export module PresidentialSorterModule {
         let isBadParty:Boolean = false;
         presidents.forEach((president) => {
             if (president.Party) {
-                if (!IsRegexMatch(president.Party)) isBadParty = true;
+                if (!IsRegexMatchForParty(president.Party)) isBadParty = true;
             }
         });
         if (isBadParty) return true;
@@ -191,7 +191,13 @@ export module PresidentialSorterModule {
         return presidentPlus;
     }
 
-    function IsRegexMatch(subject:string):boolean {
+    function IsRegexMatchForName(subject:string):boolean {
+        let regExPattern = /^([A-Za-z\.'-]+[\s]*)+$/;
+        let isMatch = !!subject.match(regExPattern);
+        return isMatch;
+    }
+
+    function IsRegexMatchForParty(subject:string):boolean {
         let regExPattern = /^([A-Za-z\.]+[\s]*)+$/;
         let isMatch = !!subject.match(regExPattern);
         return isMatch;

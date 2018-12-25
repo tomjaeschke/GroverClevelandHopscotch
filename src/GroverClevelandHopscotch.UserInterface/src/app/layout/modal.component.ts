@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, ViewChild } from '@angular/core'; 
+import { Component, OnInit, DoCheck, ElementRef, ViewChild } from '@angular/core'; 
 import { ModalMetadata } from '../models/modalMetadata.model'; 
 import { ModalContract } from '../contracts/modal.contract'; 
 @Component({ 
@@ -6,13 +6,15 @@ import { ModalContract } from '../contracts/modal.contract';
     templateUrl: './modal.component.html', 
     styleUrls:  ['./modal.component.css'] 
 }) 
-export class ModalComponent implements OnInit { 
+export class ModalComponent implements OnInit, DoCheck { 
     @ViewChild('add') add: ElementRef<HTMLElement>; 
+    @ViewChild('checky') checky: ElementRef<HTMLInputElement>;
     @ViewChild('closer') closer: ElementRef<HTMLElement>;
     @ViewChild('delete') delete: ElementRef<HTMLElement>;
     @ViewChild('face') face: ElementRef<HTMLElement>;
     @ViewChild('hat') hat: ElementRef<HTMLElement>;
-    public isCheckboxDisabled: boolean;
+    private id: string;
+    public isCheckboxDisabled: Boolean;
     private modalMetadata: ModalMetadata;
     @ViewChild('no') no: ElementRef<HTMLElement>;
     @ViewChild('opener') opener: ElementRef<HTMLFormElement>;
@@ -24,12 +26,32 @@ export class ModalComponent implements OnInit {
 
     ngOnInit() {
         this.modalMetadata = this.modalContract.getSingletonState();
-        if (this.modalMetadata.id) {
+        this.id = this.modalMetadata.id;
+        this.setTheStage();
+    }
+
+    ngDoCheck() {
+        if (this.id != this.modalMetadata.id){
+            this.id = this.modalMetadata.id;
+            this.setTheStage();
+        }
+    }
+
+    setTheStage(){
+        if (this.modalMetadata.president.HasNonconsecutiveTerms) {
+            this.checky.nativeElement.checked = true;
+        } else {
+            this.checky.nativeElement.checked = false;
+        }
+        if (this.id) {
             this.add.nativeElement.style.display = "none";
             this.no.nativeElement.style.display = "none";
             this.sure.nativeElement.style.display = "none";
             this.yes.nativeElement.style.display = "none";
+            this.delete.nativeElement.style.display = "inline";
+            this.update.nativeElement.style.display = "inline";
         } else {
+            this.add.nativeElement.style.display = "inline";
             this.delete.nativeElement.style.display = "none";
             this.no.nativeElement.style.display = "none";
             this.sure.nativeElement.style.display = "none";

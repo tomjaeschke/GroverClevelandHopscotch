@@ -1,3 +1,14 @@
+#add {
+    float: right;
+    margin-top: 15px;
+}
+#clearboth {
+    clear: both;
+}
+#innerWrapper {
+    width: 500px;
+    float: left;
+}
 tr td:first-child {
     color: #0000FF;
     cursor: pointer;
@@ -10,7 +21,7 @@ tr td:first-child:hover {
 tr td:nth-child(2) {
     padding-right: 35px;
 }
-#wrapper {
-    width: 500px;
+#outerWrapper {
+    width: 550px;
     margin: 10px;
 }

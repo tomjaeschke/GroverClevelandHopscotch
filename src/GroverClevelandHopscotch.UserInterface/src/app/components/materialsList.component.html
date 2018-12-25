@@ -1,19 +1,23 @@
-<div id="wrapper">
-	<table mat-table class="lessons-table mat-elevation-z8" [dataSource]="dataSource">
-		<ng-container matColumnDef="Name">
-			<th mat-header-cell *matHeaderCellDef>Name</th>
-			<td (click)="openModal(president)" mat-cell *matCellDef="let president">{{president.Name}}</td>
-		</ng-container>
-		<ng-container matColumnDef="Party">
-			<th mat-header-cell *matHeaderCellDef>Party</th>
-			<td mat-cell class="description-cell" *matCellDef="let president">{{president.Party}}</td>
-		</ng-container>
-		<ng-container matColumnDef="HasNonconsecutiveTerms">
-			<th mat-header-cell *matHeaderCellDef>Comeback</th>
-			<td mat-cell class="duration-cell" *matCellDef="let president">{{president.HasNonconsecutiveTerms}}</td>
-		</ng-container>
-		<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-		<tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-	</table>
-	<mat-paginator [pageSizeOptions]="[10]" showFirstLastButtons></mat-paginator>
+<div id="outerWrapper">
+    <div id="innerWrapper">
+		<table mat-table class="lessons-table mat-elevation-z8" [dataSource]="dataSource">
+			<ng-container matColumnDef="Name">
+				<th mat-header-cell *matHeaderCellDef>Name</th>
+				<td (click)="openModal(president)" mat-cell *matCellDef="let president">{{president.Name}}</td>
+			</ng-container>
+			<ng-container matColumnDef="Party">
+				<th mat-header-cell *matHeaderCellDef>Party</th>
+				<td mat-cell class="description-cell" *matCellDef="let president">{{president.Party}}</td>
+			</ng-container>
+			<ng-container matColumnDef="HasNonconsecutiveTerms">
+				<th mat-header-cell *matHeaderCellDef>Comeback</th>
+				<td mat-cell class="duration-cell" *matCellDef="let president">{{president.HasNonconsecutiveTerms}}</td>
+			</ng-container>
+			<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+			<tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+		</table>
+		<mat-paginator [pageSizeOptions]="[10]" showFirstLastButtons></mat-paginator>
+	</div>
+	<button id="add" (click)="openModal()">+</button>
+	<div id="clearBoth"></div>
 </div>
