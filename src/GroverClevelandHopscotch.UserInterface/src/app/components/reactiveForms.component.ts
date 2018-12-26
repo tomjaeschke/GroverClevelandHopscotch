@@ -1,9 +1,10 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { President } from '../models/president.model';
-import { PresidentPlus } from '../models/presidentPlus.model';
 import { PresidentialContract } from '../contracts/presidential.contract';
-import { FormsModule, ReactiveFormsModule, FormGroup, NgForm, FormArray, FormControl } from '@angular/forms';
+import { FormGroup, FormArray, FormControl } from '@angular/forms';
 import { PresidentialSorterModule } from '../modules/presidentialSorter.module';
+import { ValidationContract } from '../contracts/validation.contract';
+import { ValidationRules } from '../models/validationRules.model';
 @Component({
     selector: 'reactive',
     templateUrl: './reactiveForms.component.html',
@@ -15,7 +16,7 @@ export class ReactiveFormsComponent implements OnInit {
     presidentsForm:FormGroup; 
     parties:Array<string>;
     isToShowControls:boolean;
-    constructor(public presidentialContract : PresidentialContract) { }
+    constructor(public presidentialContract : PresidentialContract, public validationContract: ValidationContract) { }
 
     ngOnInit(): void{
         this.presidentsForm = new FormGroup({
@@ -78,50 +79,10 @@ export class ReactiveFormsComponent implements OnInit {
         return presidents;
     }
 
-    add(): void {
-        let presidents:President[] = this.calculatePresidentsFromForm();
-        let president = new President();
-        president.Name = this.newItem.nativeElement.value;
-        president.Party = "";
-        president.HasNonconsecutiveTerms = false;
-        presidents.push(president);
-        if(PresidentialSorterModule.IsBadName(presidents)){
-            alert(PresidentialSorterModule.GiveFailureMessage());
-        } else {
-            if(PresidentialSorterModule.IsBadParty(presidents)){
-                alert(PresidentialSorterModule.GiveFailureMessage());
-            } else {
-                this.updateCache();
-                this.cache.push(president);     
-                this.renderOutList(this.cache);
-                this.newItem.nativeElement.value = "";
-            }
-        }  
-    }
-
     delete(): void {
         this.updateCache();
         this.cache = this.cache.slice(0,this.cache.length - 1);
         this.renderOutList(this.cache);
-    }
-
-    submit(): void {
-        let presidents:President[] = this.calculatePresidentsFromForm();
-        if(PresidentialSorterModule.IsBadName(presidents)){
-            alert(PresidentialSorterModule.GiveFailureMessage());
-        } else {
-            if(PresidentialSorterModule.IsBadParty(presidents)){
-                alert(PresidentialSorterModule.GiveFailureMessage());
-            } else {
-            this.presidentialContract.setPresidents(presidents).toPromise().then(
-                function(data) {
-                    window.location.href = "/#/list";
-                }.bind(this),
-                function(error){
-                    console.log(error);
-                });
-            }
-        }
     }
 
     moveUp(position:number): void {
@@ -163,5 +124,53 @@ export class ReactiveFormsComponent implements OnInit {
 
     private updateFillInTheBlankSister(fillInTheBlankSister:FormControl, event:any){
         fillInTheBlankSister.setValue(event.target.options[event.target.options.selectedIndex].value);
+    }
+
+    public add():void{
+        let presidents:President[] = this.calculatePresidentsFromForm();
+        let president = new President();
+        president.Name = this.newItem.nativeElement.value;
+        president.Party = "";
+        president.HasNonconsecutiveTerms = false;
+        presidents.push(president);
+        this.validationContract.interactWithCacheOfServerSideValidations(presidents, this.nameAddClosure.bind(this));
+    }
+    
+    public nameAddClosure(validationRules: ValidationRules, presidents: Array<President>):void{
+        PresidentialSorterModule.SanityCheckName(presidents, validationRules, this.nameAddSuccess.bind(this));
+    }
+    
+    public nameAddSuccess(presidents: Array<President>):void{
+        this.updateCache();
+        this.cache.push(presidents[presidents.length - 1]);     
+        this.renderOutList(this.cache);
+        this.newItem.nativeElement.value = "";
+    }
+    
+    public submit():void{
+        let presidents:President[] = this.calculatePresidentsFromForm();
+        this.validationContract.interactWithCacheOfServerSideValidations(presidents, this.nameSubmitClosure.bind(this));
+    }
+    
+    public nameSubmitClosure(validationRules: ValidationRules, presidents: Array<President>):void{
+        PresidentialSorterModule.SanityCheckName(presidents, validationRules, this.nameSubmitSuccess.bind(this));
+    }
+    
+    public nameSubmitSuccess(presidents: Array<President>):void{
+        this.validationContract.interactWithCacheOfServerSideValidations(presidents, this.partySubmitClosure.bind(this));
+    }
+    
+    public partySubmitClosure(validationRules: ValidationRules, presidents: Array<President>):void{
+        PresidentialSorterModule.SanityCheckParty(presidents, validationRules, this.partySubmitSuccess.bind(this));
+    }
+    
+    public partySubmitSuccess(presidents: Array<President>):void{
+        this.presidentialContract.setPresidents(presidents).toPromise().then(
+            function(data) {
+                window.location.href = "/#/list";
+            }.bind(this),
+            function(error){
+                console.log(error);
+            });
     }
 }

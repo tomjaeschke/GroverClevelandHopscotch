@@ -1,10 +1,7 @@
 import { President } from '../models/president.model';
 import { PresidentPlus } from '../models/presidentPlus.model';
-export module PresidentialSorterModule {
-    export function GiveFailureMessage(): string {
-        return "Names cannot be dupes nor empty! Letters, periods, and spaces are acceptable characters. A person's name may have single quotes and hyphens but a party name cannot.";
-    }
-    
+import { ValidationRules } from '../models/validationRules.model';
+export module PresidentialSorterModule {    
     export function CraftPartyList(presidents:Array<President>): Array<string>{
         let parties:Array<string>;
         if (presidents.length > 1){
@@ -17,10 +14,10 @@ export module PresidentialSorterModule {
                 if (yang.Party){
                     yangParty = yang.Party;
                 }
-                if (yinParty > yangParty){
+                if (yinParty.toUpperCase() > yangParty.toUpperCase()){
                     return 1;
                 }
-                if (yinParty < yangParty){
+                if (yinParty.toUpperCase() < yangParty.toUpperCase()){
                     return -1;
                 }
                 return 0;
@@ -45,48 +42,59 @@ export module PresidentialSorterModule {
         return parties;
     }
     
-    export function IsBadName(presidents:Array<President>):Boolean {
+    export function SanityCheckName(presidents:Array<President>, validationRules:ValidationRules, onSuccess:(presidents:Array<President>)=>void):void{
         let sortedPresidents = new Array<President>();
         let isBadName:Boolean = false;
         presidents.forEach((president) => {
             if (!president.Name) {
                 isBadName = true;
             } else {
-                if (!IsRegexMatchForName(president.Name)) isBadName = true;
+                let isMatch = !!president.Name.match(validationRules.PresidentialNameValidationRule);
+                if (!isMatch) isBadName = true;
             }
             sortedPresidents.push(JSON.parse(JSON.stringify(president)));
         });
-        if (isBadName) return true;
-        sortedPresidents = sortedPresidents.sort((yin, yang) => {
-            if (yin.Name > yang.Name){
-                return 1;
-            }
-            if (yin.Name < yang.Name){
-                return -1;
-            }
-                return 0;
+        if (isBadName) {
+            alert(validationRules.ErrorMessageForName);
+        } else {
+            sortedPresidents = sortedPresidents.sort((yin, yang) => {
+                if (yin.Name > yang.Name){
+                    return 1;
+                }
+                if (yin.Name < yang.Name){
+                    return -1;
+                }
+                    return 0;
+                });
+            let namePlaceholder:string = "";
+            sortedPresidents.forEach((sortedPresident) => {
+                if (sortedPresident.Name == namePlaceholder) {
+                    isBadName = true;
+                }
+                namePlaceholder = sortedPresident.Name;
             });
-        let namePlaceholder:string = "";
-        sortedPresidents.forEach((sortedPresident) => {
-            if (sortedPresident.Name == namePlaceholder) {
-                isBadName = true;
+            if (isBadName) {
+                alert(validationRules.ErrorMessageForName);
+            } else {
+                onSuccess(presidents);
             }
-            namePlaceholder = sortedPresident.Name;
-        });
-        if (isBadName) return true;
-        return false;
+        }
     }
 
-    export function IsBadParty(presidents:Array<President>):Boolean {
+    export function SanityCheckParty(presidents:Array<President>, validationRules:ValidationRules, onSuccess:(presidents:Array<President>)=>void):void{
         let sortedPresidents = new Array<President>();
         let isBadParty:Boolean = false;
         presidents.forEach((president) => {
             if (president.Party) {
-                if (!IsRegexMatchForParty(president.Party)) isBadParty = true;
+                let isMatch = !!president.Party.match(validationRules.PresidentialPartyValidationRule);
+                if (!isMatch) isBadParty = true;
             }
         });
-        if (isBadParty) return true;
-        return false;
+        if (isBadParty) {
+            alert(validationRules.ErrorMessageForParty);
+        } else {
+            onSuccess(presidents);
+        }
     }
     
     export function Sort(presidents:Array<President>):Array<PresidentPlus> {
@@ -189,17 +197,5 @@ export module PresidentialSorterModule {
         presidentPlus.IsCurrentPresident = ambiguousObject.IsCurrentPresident;
         presidentPlus.Positions = ambiguousObject.Positions;
         return presidentPlus;
-    }
-
-    function IsRegexMatchForName(subject:string):boolean {
-        let regExPattern = /^([A-Za-z\.'-]+[\s]*)+$/;
-        let isMatch = !!subject.match(regExPattern);
-        return isMatch;
-    }
-
-    function IsRegexMatchForParty(subject:string):boolean {
-        let regExPattern = /^([A-Za-z\.]+[\s]*)+$/;
-        let isMatch = !!subject.match(regExPattern);
-        return isMatch;
     }
 }

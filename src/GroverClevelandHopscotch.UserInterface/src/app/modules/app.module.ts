@@ -35,6 +35,8 @@ import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform
 import { ModalComponent } from '../layout/modal.component';
 import { ModalContract } from '../contracts/modal.contract';
 import { ModalService } from '../services/modal.service';
+import { ValidationContract } from '../contracts/validation.contract';
+import { ValidationService } from '../services/validation.service';
 
 @NgModule({
 	imports: [
@@ -71,6 +73,7 @@ import { ModalService } from '../services/modal.service';
 		{provide: TimeContract, useClass: TimeService},
 		{provide: PresidentialContract, useClass: PresidentialService},
 		{provide: ModalContract, useClass: ModalService},
+		{provide: ValidationContract, useClass: ValidationService},
 		{provide: LocationStrategy, useClass: HashLocationStrategy}
 	],
 	entryComponents: [

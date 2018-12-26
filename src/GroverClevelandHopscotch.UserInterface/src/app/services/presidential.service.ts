@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Configuration } from '../../configuration';
-import { Http, Headers, RequestOptions, Response } from '@angular/http';
-import { HttpClient } from '@angular/common/http'
+import { Http, Headers, RequestOptions } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { President } from '../models/president.model';
 import { PresidentialContract } from '../contracts/presidential.contract';
 @Injectable()
