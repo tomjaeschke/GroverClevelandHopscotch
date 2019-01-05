@@ -1,4 +1,4 @@
-12/25/2018 45th commit 
-I am making validations emerge from the server side. This entails a sweeping refactoring which is dependent upon a call to a server which may or may not have happened yet at the moment of any one validation, thus opening the door to a workflow that must potentially/conditionally accommodate asynchronous deferment of to dos. 
+1/5/2019 46th commit 
+I am bettering the tests I wrote around regular expressions for form validations. What I had before didn't really add any value. 
 
 There are really two apps here. An Angular app at \src\GroverClevelandHopscotch.UserInterface\src\ running at http://localhost:4200/ will try to crosstalk with a REST API app run from the Visual Studio 2017 solution at \src\GroverClevelandHopscotch.sln at http://localhost:58220/ and that means that http://localhost:58220/ has to exist in a configuration file somewhere right? That file is at \src\GroverClevelandHopscotch.UserInterface\src\configuration.ts should you need to change it. Otherwise there should be little to configure. There is no database or anything like that. There is a flat file at \src\GroverClevelandHopscotch.Infrastructure\BackingStore.csv that is my pseudodatabase. Don't put silly permission restrictions on it please. Enjoy.
