@@ -1,4 +1,4 @@
-1/5/2019 46th commit 
-I am bettering the tests I wrote around regular expressions for form validations. What I had before didn't really add any value. 
+1/6/2019 47th commit 
+I have the delete scenario working at the Angular Materials example. This includes a simple promise against a void-returning MVC API endpoint along with some error handling for the promise. 
 
 There are really two apps here. An Angular app at \src\GroverClevelandHopscotch.UserInterface\src\ running at http://localhost:4200/ will try to crosstalk with a REST API app run from the Visual Studio 2017 solution at \src\GroverClevelandHopscotch.sln at http://localhost:58220/ and that means that http://localhost:58220/ has to exist in a configuration file somewhere right? That file is at \src\GroverClevelandHopscotch.UserInterface\src\configuration.ts should you need to change it. Otherwise there should be little to configure. There is no database or anything like that. There is a flat file at \src\GroverClevelandHopscotch.Infrastructure\BackingStore.csv that is my pseudodatabase. Don't put silly permission restrictions on it please. Enjoy.

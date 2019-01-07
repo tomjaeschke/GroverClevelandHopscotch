@@ -37,7 +37,24 @@ export class MaterialsListComponent implements OnInit {
 		
 	}
 
+	deleteSuccessAct(id: string): void {
+		let counter:number = 0;
+		let ids:Array<number> = new Array<number>();
+		this.presidents.forEach((president) => {
+			if (president.Name == id) {
+				ids.push(counter);
+			}
+			counter++;
+		});
+		ids.reverse();
+		ids.forEach((pointToCutAt) => {
+			this.presidents.splice(pointToCutAt, 1);
+		});
+		this.dataSource = new MatTableDataSource<President>(this.presidents);
+		this.dataSource.paginator = this.paginator;
+    }
+
 	openModal(president:President): void {
-		this.modalContract.open(president);
+		this.modalContract.open(president, this.deleteSuccessAct.bind(this));
 	}
 }

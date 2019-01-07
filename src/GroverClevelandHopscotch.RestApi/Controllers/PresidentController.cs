@@ -26,5 +26,12 @@ namespace GroverClevelandHopscotch.RestApi.Controllers
             _flatFileMechanics.SetPresidents(presidents);
             return Ok(null);
         }
+
+        [HttpDelete]
+        [Route("{id}")]
+        public void Delete(string id)
+        {
+            _flatFileMechanics.DeletePresident(id);
+        }
     }
 }

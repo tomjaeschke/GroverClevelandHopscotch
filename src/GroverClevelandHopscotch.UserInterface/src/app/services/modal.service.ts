@@ -15,9 +15,12 @@ export class ModalService implements OnDestroy {
             if (this.backingStore) this.backingStore.closeAction(); 
         }); 
     }
-    public open(president?:President) { 
+    public open(president:President, deleteAction: (id: string) => void) { 
         const filePreviewPortal = new ComponentPortal(ModalComponent); 
-        if (!this.backingStore) this.backingStore = new ModalMetadata();
+        if (!this.backingStore) {
+            this.backingStore = new ModalMetadata();
+            this.backingStore.deleteAction = deleteAction;
+        }
         if (president) {
             this.backingStore.id = president.Name;
             this.backingStore.president = president;       

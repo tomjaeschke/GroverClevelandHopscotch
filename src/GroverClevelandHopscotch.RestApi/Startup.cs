@@ -1,11 +1,11 @@
 ﻿using GroverClevelandHopscotch.Core.Interfaces;
 using GroverClevelandHopscotch.Infrastructure.Dependencies;
+using GroverClevelandHopscotch.RestApi.Middleware;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json.Serialization;
-
 namespace GroverClevelandHopscotch.RestApi
 {
     public class Startup
@@ -20,7 +20,10 @@ namespace GroverClevelandHopscotch.RestApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCors();
-            services.AddMvc().AddJsonOptions(opt => opt.SerializerSettings.ContractResolver = new DefaultContractResolver());
+            services.AddMvc(options =>
+            {
+                options.Filters.Add(new BubbleUpExceptions());
+            }).AddJsonOptions(opt => opt.SerializerSettings.ContractResolver = new DefaultContractResolver());
             ConfigureIoC(services);
         }
 

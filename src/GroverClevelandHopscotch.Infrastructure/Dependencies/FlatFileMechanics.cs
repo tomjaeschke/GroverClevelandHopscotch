@@ -7,6 +7,27 @@ namespace GroverClevelandHopscotch.Infrastructure.Dependencies
 {
     public class FlatFileMechanics : IFlatFileMechanics
     {
+        public void DeletePresident(string id)
+        {
+            List<President> presidents = GetPresidents();
+            int counter = 0;
+            List<int> indexesForDeletion = new List<int>(){};
+            foreach (var president in presidents)
+            {
+                if (president.Name == id)
+                {
+                    indexesForDeletion.Add(counter);
+                }
+                counter++;
+            }
+            indexesForDeletion.Reverse();
+            foreach (int index in indexesForDeletion)
+            {
+                presidents.RemoveAt(index);
+            }
+            SetPresidents(presidents);
+        }
+
         public List<President> GetPresidents()
         {
             string file = "BackingStore.csv";

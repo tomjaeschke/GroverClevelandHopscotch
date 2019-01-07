@@ -7,17 +7,27 @@ import { President } from '../models/president.model';
 import { PresidentialContract } from '../contracts/presidential.contract';
 @Injectable()
 export class PresidentialService implements PresidentialContract {
-    constructor(private http: Http, private httpClient: HttpClient, private configuration: Configuration) { }
+    private route: string;
+    
+    constructor(private http: Http, private httpClient: HttpClient, private configuration: Configuration) {
+        this.route = this.configuration.routeToApi + "api/president/";
+    }
+
+    deletePresident(id: string, successAct: () => void, errorAct: (errorCode: number, errorMessage: string) => void):void {
+        this.http.delete(this.route + id).toPromise().then(function(){
+            successAct();
+        }, function(error){
+            errorAct(error.status, JSON.parse(error._body).Message);
+        });
+    }
 
     getPresidents():Observable<Array<President>>{
-        let route: string = this.configuration.routeToApi + "api/president";
-        return this.httpClient.get<Array<President>>(route,{});
+        return this.httpClient.get<Array<President>>(this.route,{});
     }
 
     setPresidents(presidents:Array<President>):Observable<any>{
-        let route: string = this.configuration.routeToApi + "api/president";
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
-        return this.http.put(route, presidents, options);
+        return this.http.put(this.route, presidents, options);
     }
 }

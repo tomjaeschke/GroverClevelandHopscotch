@@ -1,6 +1,7 @@
 import { Component, OnInit, DoCheck, ElementRef, ViewChild } from '@angular/core'; 
 import { ModalMetadata } from '../models/modalMetadata.model'; 
 import { ModalContract } from '../contracts/modal.contract'; 
+import { PresidentialContract } from '../contracts/presidential.contract';
 @Component({ 
     selector: 'modal', 
     templateUrl: './modal.component.html', 
@@ -22,7 +23,7 @@ export class ModalComponent implements OnInit, DoCheck {
     @ViewChild('update') update: ElementRef<HTMLElement>;
     @ViewChild('yes') yes: ElementRef<HTMLElement>;
 
-    constructor(public modalContract: ModalContract) {}
+    constructor(public modalContract: ModalContract, public presidentialContract : PresidentialContract) {}
 
     ngOnInit() {
         this.modalMetadata = this.modalContract.getSingletonState();
@@ -77,6 +78,14 @@ export class ModalComponent implements OnInit, DoCheck {
         this.yes.nativeElement.style.display = "inline"; 
     }
 
+    deleteErrorAct(errorCode: number, errorMessage: string): void {
+        alert("The deletion was unsuccessful!");
+    }
+
+    deleteSuccessAct(): void {
+        this.modalMetadata.deleteActionWrapper();
+    }
+
     noClick() {
         this.closer.nativeElement.style.display = "block";
         this.delete.nativeElement.style.display = "inline";
@@ -88,5 +97,9 @@ export class ModalComponent implements OnInit, DoCheck {
         this.sure.nativeElement.style.display = "none";
         this.update.nativeElement.style.display = "inline";
         this.yes.nativeElement.style.display = "none"; 
+    }
+
+    yesClick() {
+        this.presidentialContract.deletePresident(this.modalMetadata.id, this.deleteSuccessAct.bind(this), this.deleteErrorAct);
     }
 }

@@ -20,6 +20,7 @@ export class ValidationService implements ValidationContract {
             let subscription:ISubscription = validationRulesObservable.subscribe((validationRules:ValidationRules) => {
                 this.validationRules = validationRules;
                 closureThatNeedsValidationRules(this.validationRules, presidents);
+                subscription.unsubscribe();
             });
         }
     }
