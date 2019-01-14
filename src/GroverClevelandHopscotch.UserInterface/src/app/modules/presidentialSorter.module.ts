@@ -14,10 +14,10 @@ export module PresidentialSorterModule {
                 if (yang.Party){
                     yangParty = yang.Party;
                 }
-                if (yinParty.toUpperCase() > yangParty.toUpperCase()){
+                if (yinParty.toUpperCase().trim() > yangParty.toUpperCase().trim()){
                     return 1;
                 }
-                if (yinParty.toUpperCase() < yangParty.toUpperCase()){
+                if (yinParty.toUpperCase().trim() < yangParty.toUpperCase().trim()){
                     return -1;
                 }
                 return 0;
@@ -68,7 +68,7 @@ export module PresidentialSorterModule {
                 });
             let namePlaceholder:string = "";
             sortedPresidents.forEach((sortedPresident) => {
-                if (sortedPresident.Name == namePlaceholder) {
+                if (sortedPresident.Name.toUpperCase().trim() == namePlaceholder.toUpperCase().trim()) {
                     isBadName = true;
                 }
                 namePlaceholder = sortedPresident.Name;
