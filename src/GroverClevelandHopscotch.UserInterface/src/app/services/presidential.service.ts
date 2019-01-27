@@ -25,6 +25,16 @@ export class PresidentialService implements PresidentialContract {
         return this.httpClient.get<Array<President>>(this.route,{});
     }
 
+    setPresident(president: President, id: string, successAct: () => void, errorAct: (errorCode: number, errorMessage: string) => void):void {
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+        this.http.put(this.route + id, president, options).toPromise().then(function(){
+            successAct();
+        }, function(error){
+            errorAct(error.status, JSON.parse(error._body).Message);
+        });
+    }
+
     setPresidents(presidents:Array<President>):Observable<any>{
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });

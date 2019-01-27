@@ -1,4 +1,8 @@
-﻿using GroverClevelandHopscotch.Core.Objects;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Text.RegularExpressions;
+using GroverClevelandHopscotch.Core.Objects;
 namespace GroverClevelandHopscotch.Core.Utilities
 {
     public static class ValidationRulesUtility
@@ -12,6 +16,33 @@ namespace GroverClevelandHopscotch.Core.Utilities
                 PresidentialNameValidationRule = @"^([A-Za-z\.'-]+[\s]*)+$",
                 PresidentialPartyValidationRule = @"^([A-Za-z]+[\s]*)*$"
             };
+        }
+
+        public static void ValidateName(List<President> presidents, string nameToBe, string preexistingName = null)
+        {
+            ValidationRules validationRules = GetRules();
+            bool hasSurvivedRegularExpressionMatching = (Regex.IsMatch(nameToBe, validationRules.PresidentialNameValidationRule));
+            if (!hasSurvivedRegularExpressionMatching)
+            {
+                throw new ValidationException(validationRules.ErrorMessageForName);
+            }
+            foreach (President president in presidents)
+            {
+                if (president.Name.ToLower().Trim() == nameToBe.ToLower().Trim() && nameToBe.ToLower().Trim() != (String.IsNullOrEmpty(preexistingName) ? null : preexistingName.ToLower().Trim()))
+                {
+                    throw new ValidationException(validationRules.ErrorMessageForName);
+                }
+            }
+        }
+
+        public static void ValidateParty(string party)
+        {
+            ValidationRules validationRules = GetRules();
+            bool hasSurvivedRegularExpressionMatching = (Regex.IsMatch(party, validationRules.PresidentialPartyValidationRule));
+            if (!hasSurvivedRegularExpressionMatching)
+            {
+                throw new ValidationException(validationRules.ErrorMessageForParty);
+            }
         }
     }
 }

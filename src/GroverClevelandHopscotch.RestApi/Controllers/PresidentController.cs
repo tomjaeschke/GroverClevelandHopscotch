@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using GroverClevelandHopscotch.Core.Interfaces;
 using GroverClevelandHopscotch.Core.Objects;
+using GroverClevelandHopscotch.Core.Utilities;
 using Microsoft.AspNetCore.Mvc;
 namespace GroverClevelandHopscotch.RestApi.Controllers
 {
@@ -25,6 +26,24 @@ namespace GroverClevelandHopscotch.RestApi.Controllers
         {
             _flatFileMechanics.SetPresidents(presidents);
             return Ok(null);
+        }
+
+        [HttpPut("{id}")]
+        public void Put(string id, [FromBody] President president)
+        {
+            List<President> presidents = _flatFileMechanics.GetPresidents();
+            ValidationRulesUtility.ValidateName(presidents, president.Name, id);
+            ValidationRulesUtility.ValidateParty(president.Party);
+            presidents.ForEach(p =>
+            {
+                if (id == p.Name)
+                {
+                    p.Name = president.Name;
+                    p.Party = president.Party;
+                    p.HasNonconsecutiveTerms = president.HasNonconsecutiveTerms;
+                }
+            });
+            _flatFileMechanics.SetPresidents(presidents);
         }
 
         [HttpDelete]
