@@ -40,8 +40,8 @@
                         <div class="lineItemContentPartySelect">
                             <select (change)="updateFillInTheBlankSister(lineItem.controls['party'], $event)">
                                 <ng-container *ngFor="let party of parties">
-                                    <option *ngIf="lineItem.controls['party'].value !== party" [value]="party ? party : ''">{{party}}</option>
-                                    <option *ngIf="lineItem.controls['party'].value === party" [value]="party ? party : ''" selected>{{party}}</option>
+                                    <option *ngIf="(lineItem.controls['party'].value + '').toLowerCase().trim() !== (party + '').toLowerCase().trim()" [value]="party ? party : ''">{{party}}</option>
+                                    <option *ngIf="(lineItem.controls['party'].value + '').toLowerCase().trim() === (party + '').toLowerCase().trim()" [value]="party ? party : ''" selected>{{party}}</option>
                                 </ng-container>                       
                             </select>
                         </div>

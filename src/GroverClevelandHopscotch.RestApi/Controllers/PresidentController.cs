@@ -16,16 +16,15 @@ namespace GroverClevelandHopscotch.RestApi.Controllers
         }
 
         [HttpGet]
-        public ObjectResult Get()
+        public List<President> Get()
         {
-            return Ok(_flatFileMechanics.GetPresidents());
+            return _flatFileMechanics.GetPresidents();
         }
         
         [HttpPut]
-        public ObjectResult Put([FromBody] List<President> presidents)
+        public void Put([FromBody] List<President> presidents)
         {
             _flatFileMechanics.SetPresidents(presidents);
-            return Ok(null);
         }
 
         [HttpPut("{id}")]

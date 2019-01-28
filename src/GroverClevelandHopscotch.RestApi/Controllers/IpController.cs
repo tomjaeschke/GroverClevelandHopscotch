@@ -14,10 +14,10 @@ namespace GroverClevelandHopscotch.RestApi.Controllers
         }
 
         [HttpGet]
-        public ObjectResult Get()
+        public IpAddressWrapper Get()
         {
             IpAddressWrapper ipAddressWrapper = new IpAddressWrapper(_ipMechanics);
-            return Ok(ipAddressWrapper);
+            return ipAddressWrapper;
         }
     }
 }

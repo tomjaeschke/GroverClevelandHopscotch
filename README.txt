@@ -1,4 +1,4 @@
-1/27/2019 49th commit 
-This gets the updating of individual records working at the Materials example form. I am trying to give better commit messages going forward. 
+1/28/2019 50th commit 
+I am minimizing what controllers return, improving messaging for sanity check failures, and preventing party names which have different casing but are otherwise the same from screwing up dropdown lists of such names. In other words, this is some sweeping clean up. 
 
 There are really two apps here. An Angular app at \src\GroverClevelandHopscotch.UserInterface\src\ running at http://localhost:4200/ will try to crosstalk with a REST API app run from the Visual Studio 2017 solution at \src\GroverClevelandHopscotch.sln at http://localhost:58220/ and that means that http://localhost:58220/ has to exist in a configuration file somewhere right? That file is at \src\GroverClevelandHopscotch.UserInterface\src\configuration.ts should you need to change it. Otherwise there should be little to configure. There is no database or anything like that. There is a flat file at \src\GroverClevelandHopscotch.Infrastructure\BackingStore.csv that is my pseudodatabase. Don't put silly permission restrictions on it please. Enjoy.

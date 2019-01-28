@@ -25,7 +25,9 @@ export module PresidentialSorterModule {
             let counter:number = 1;
             parties = [presidentsCopy[0].Party];
             while (counter < presidentsCopy.length){
-                if (presidentsCopy[counter].Party + "" != parties[parties.length-1] + ""){
+                let yinParty:string = presidentsCopy[counter].Party + "";
+                let yangParty:string = parties[parties.length-1] + "";
+                if (yinParty.toUpperCase().trim() != yangParty.toUpperCase().trim()){
                     if (presidentsCopy[counter].Party) {
                         parties.push(presidentsCopy[counter].Party);  
                     }                

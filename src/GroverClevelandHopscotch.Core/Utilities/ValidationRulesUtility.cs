@@ -11,8 +11,8 @@ namespace GroverClevelandHopscotch.Core.Utilities
         {
             return new ValidationRules()
             {
-                ErrorMessageForName = "A person's name may only contain letters, spaces, single quotes, hyphens, and periods and moreover cannot be a duplicate or left blank.",
-                ErrorMessageForParty = "A party name may only contain letters and spaces or, alternatively, it may be left blank.",
+                ErrorMessageForName = "A person's name may only contain letters, spaces, single quotes, hyphens, and periods and moreover cannot be a duplicate or left blank. It should start with a letter.",
+                ErrorMessageForParty = "A party name may only contain letters and spaces (but not just spaces or leading spaces) or, alternatively, it may be left blank.",
                 PresidentialNameValidationRule = @"^([A-Za-z\.'-]+[\s]*)+$",
                 PresidentialPartyValidationRule = @"^([A-Za-z]+[\s]*)*$"
             };

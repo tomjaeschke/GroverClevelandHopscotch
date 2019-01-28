@@ -15,7 +15,10 @@
         </td>
         <td>
             <select [(ngModel)]="president.Party">
-                <option *ngFor="let party of parties" [value]="party ? party : ''" selected>{{party}}</option>
+                <ng-container *ngFor="let party of parties">
+                    <option *ngIf="(president.Party + '').toLowerCase().trim() !== (party + '').toLowerCase().trim()" [value]="party ? party : ''">{{party}}</option>
+                    <option *ngIf="(president.Party + '').toLowerCase().trim() === (party + '').toLowerCase().trim()" [value]="party ? party : ''" selected>{{party}}</option>
+                </ng-container>  
             </select>
         </td>
         <td>
