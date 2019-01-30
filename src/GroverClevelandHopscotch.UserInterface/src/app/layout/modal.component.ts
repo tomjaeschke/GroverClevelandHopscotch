@@ -40,6 +40,10 @@ export class ModalComponent implements OnInit, DoCheck {
         }
     }
 
+    addClick() {
+        this.presidentialContract.addPresident(this.potentialRevision, this.postSuccessAct.bind(this), this.postErrorAct);
+    }
+
     checkyChange(): void {
         this.potentialRevision.HasNonconsecutiveTerms = this.checky.nativeElement.checked;
     }
@@ -90,6 +94,15 @@ export class ModalComponent implements OnInit, DoCheck {
     partyChange(event: Event): void {
         const control = <HTMLInputElement>event.target;
         this.potentialRevision.Party = control.value;
+    }
+
+    postErrorAct(errorCode: number, errorMessage: string): void {
+        alert(errorMessage);
+    }
+
+    postSuccessAct(president: President): void {
+        console.log(president);
+        this.close();
     }
 
     putErrorAct(errorCode: number, errorMessage: string): void {

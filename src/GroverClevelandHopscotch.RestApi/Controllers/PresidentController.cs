@@ -20,7 +20,18 @@ namespace GroverClevelandHopscotch.RestApi.Controllers
         {
             return _flatFileMechanics.GetPresidents();
         }
-        
+
+        [HttpPost]
+        public President Put([FromBody] President president)
+        {
+            List<President> presidents = _flatFileMechanics.GetPresidents();
+            ValidationRulesUtility.ValidateName(presidents, president.Name);
+            ValidationRulesUtility.ValidateParty(president.Party);
+            presidents.Add(president);
+            _flatFileMechanics.SetPresidents(presidents);
+            return president;
+        }
+
         [HttpPut]
         public void Put([FromBody] List<President> presidents)
         {

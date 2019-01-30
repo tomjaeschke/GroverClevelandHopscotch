@@ -1,4 +1,4 @@
-1/28/2019 50th commit 
-I am minimizing what controllers return, improving messaging for sanity check failures, and preventing party names which have different casing but are otherwise the same from screwing up dropdown lists of such names. In other words, this is some sweeping clean up. 
+1/29/2019 51st commit 
+This commit gets the add feature at the Materials example working up to the point of writing records to the server and handing the object just posted back to the frontend. What it does not do is make the UI react on the other side of all of that, so that will have to wait until the next commit. 
 
 There are really two apps here. An Angular app at \src\GroverClevelandHopscotch.UserInterface\src\ running at http://localhost:4200/ will try to crosstalk with a REST API app run from the Visual Studio 2017 solution at \src\GroverClevelandHopscotch.sln at http://localhost:58220/ and that means that http://localhost:58220/ has to exist in a configuration file somewhere right? That file is at \src\GroverClevelandHopscotch.UserInterface\src\configuration.ts should you need to change it. Otherwise there should be little to configure. There is no database or anything like that. There is a flat file at \src\GroverClevelandHopscotch.Infrastructure\BackingStore.csv that is my pseudodatabase. Don't put silly permission restrictions on it please. Enjoy.

@@ -13,6 +13,16 @@ export class PresidentialService implements PresidentialContract {
         this.route = this.configuration.routeToApi + "api/president/";
     }
 
+    addPresident(president: President, successAct: (president: President) => void, errorAct: (errorCode: number, errorMessage: string) => void):void {
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+        this.http.post(this.route, president, options).toPromise().then(function(boomarang){
+            successAct(boomarang["_body"]);
+        }, function(error){
+            errorAct(error.status, JSON.parse(error._body).Message);
+        });
+    }
+
     deletePresident(id: string, successAct: () => void, errorAct: (errorCode: number, errorMessage: string) => void):void {
         this.http.delete(this.route + id).toPromise().then(function(){
             successAct();

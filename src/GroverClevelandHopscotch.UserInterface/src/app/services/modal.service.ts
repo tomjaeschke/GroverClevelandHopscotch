@@ -27,8 +27,8 @@ export class ModalService implements OnDestroy {
         } else {
             this.backingStore.id = "";
             this.backingStore.president = new President();
-            this.backingStore.president.Name = "";
-            this.backingStore.president.Party = "";
+            this.backingStore.president.Name = "¿nombre?";
+            this.backingStore.president.Party = "¿partido?";
             this.backingStore.president.HasNonconsecutiveTerms = false;
         }
         if (!this.backingStore.overlayRef) { 
