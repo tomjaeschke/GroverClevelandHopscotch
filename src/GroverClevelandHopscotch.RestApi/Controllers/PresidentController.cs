@@ -22,7 +22,7 @@ namespace GroverClevelandHopscotch.RestApi.Controllers
         }
 
         [HttpPost]
-        public President Put([FromBody] President president)
+        public President Post([FromBody] President president)
         {
             List<President> presidents = _flatFileMechanics.GetPresidents();
             ValidationRulesUtility.ValidateName(presidents, president.Name);

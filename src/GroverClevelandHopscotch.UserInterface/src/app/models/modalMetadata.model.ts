@@ -1,7 +1,7 @@
 import { President } from '../models/president.model'; 
 import { OverlayRef } from '@angular/cdk/overlay'; 
 export class ModalMetadata { 
-    deleteAction: (id: string) => void;
+    act: (id: string) => void;
     id: string;
     overlayRef: OverlayRef; 
     president: President;
@@ -11,8 +11,8 @@ export class ModalMetadata {
             this.overlayRef = null; 
         } 
     }
-    public deleteActionWrapper(){
-        this.deleteAction(this.id);
+    public actWrapper(){
+        this.act(this.id);
         this.closeAction();
     }
 }

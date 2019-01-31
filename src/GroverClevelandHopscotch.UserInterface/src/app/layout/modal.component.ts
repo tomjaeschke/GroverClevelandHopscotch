@@ -70,7 +70,7 @@ export class ModalComponent implements OnInit, DoCheck {
     }
 
     deleteSuccessAct(): void {
-        this.modalMetadata.deleteActionWrapper();
+        this.modalMetadata.actWrapper();
     }
 
     nameChange(event: Event): void {
@@ -101,8 +101,7 @@ export class ModalComponent implements OnInit, DoCheck {
     }
 
     postSuccessAct(president: President): void {
-        console.log(president);
-        this.close();
+        this.modalMetadata.actWrapper();
     }
 
     putErrorAct(errorCode: number, errorMessage: string): void {

@@ -22,19 +22,15 @@ export class MaterialsListComponent implements OnInit {
 	@ViewChild(MatPaginator) paginator: MatPaginator;
 
 	ngOnInit(): void{
-		this.presidentialContract.getPresidents().toPromise().then(
-			function(data) {
-				this.presidents = data;
-				this.dataSource = new MatTableDataSource<President>(this.presidents);
-				this.dataSource.paginator = this.paginator;
-			}.bind(this),
-			function(error){
-				console.log(error);
-			});
+		this.setStage();
 	}
 
 	constructor(public presidentialContract: PresidentialContract, public modalContract: ModalContract) {
 		
+	}
+
+	addSuccessAct(id: string): void {
+		this.setStage();
 	}
 
 	deleteSuccessAct(id: string): void {
@@ -55,6 +51,18 @@ export class MaterialsListComponent implements OnInit {
     }
 
 	openModal(president:President): void {
-		this.modalContract.open(president, this.deleteSuccessAct.bind(this));
+		this.modalContract.open(president, president ? this.deleteSuccessAct.bind(this) : this.addSuccessAct.bind(this));
+	}
+
+	private setStage():void {
+		this.presidentialContract.getPresidents().toPromise().then(
+			function(data) {
+				this.presidents = data;
+				this.dataSource = new MatTableDataSource<President>(this.presidents);
+				this.dataSource.paginator = this.paginator;
+			}.bind(this),
+			function(error){
+				console.log(error);
+			});
 	}
 }
