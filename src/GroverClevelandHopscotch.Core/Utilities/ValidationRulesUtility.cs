@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using System.Text.RegularExpressions;
 using GroverClevelandHopscotch.Core.Objects;
 namespace GroverClevelandHopscotch.Core.Utilities
@@ -37,11 +38,41 @@ namespace GroverClevelandHopscotch.Core.Utilities
 
         public static void ValidateParty(string party)
         {
-            ValidationRules validationRules = GetRules();
-            bool hasSurvivedRegularExpressionMatching = (Regex.IsMatch(party, validationRules.PresidentialPartyValidationRule));
-            if (!hasSurvivedRegularExpressionMatching)
+            if (party != null)
             {
-                throw new ValidationException(validationRules.ErrorMessageForParty);
+                ValidationRules validationRules = GetRules();
+                bool hasSurvivedRegularExpressionMatching = (Regex.IsMatch(party, validationRules.PresidentialPartyValidationRule));
+                if (!hasSurvivedRegularExpressionMatching)
+                {
+                    throw new ValidationException(validationRules.ErrorMessageForParty);
+                }
+            }
+        }
+
+        public static void ValidatePresidents(List<President> presidents)
+        {
+            string predecessor = "";
+            ValidationRules validationRules = GetRules();
+            foreach (President president in presidents.OrderBy(p => p.Name.ToLower().Trim()))
+            {
+                if (president.Name.ToLower().Trim() == predecessor.ToLower().Trim())
+                {
+                    throw new ValidationException(validationRules.ErrorMessageForName);
+                }
+                bool hasSurvivedRegularExpressionMatching = (Regex.IsMatch(president.Name, validationRules.PresidentialNameValidationRule));
+                if (!hasSurvivedRegularExpressionMatching)
+                {
+                    throw new ValidationException(validationRules.ErrorMessageForName);
+                }
+                if (president.Party != null)
+                {
+                    hasSurvivedRegularExpressionMatching = (Regex.IsMatch(president.Party, validationRules.PresidentialPartyValidationRule));
+                    if (!hasSurvivedRegularExpressionMatching)
+                    {
+                        throw new ValidationException(validationRules.ErrorMessageForParty);
+                    }
+                } 
+                predecessor = president.Name;
             }
         }
     }

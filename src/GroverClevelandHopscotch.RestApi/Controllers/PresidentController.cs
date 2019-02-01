@@ -35,6 +35,7 @@ namespace GroverClevelandHopscotch.RestApi.Controllers
         [HttpPut]
         public void Put([FromBody] List<President> presidents)
         {
+            ValidationRulesUtility.ValidatePresidents(presidents);
             _flatFileMechanics.SetPresidents(presidents);
         }
 

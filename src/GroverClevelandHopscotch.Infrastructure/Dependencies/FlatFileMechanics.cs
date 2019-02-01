@@ -51,7 +51,7 @@ namespace GroverClevelandHopscotch.Infrastructure.Dependencies
                         {
                             president.HasNonconsecutiveTerms = Convert.ToBoolean(scrappings[2]);
                         }
-                        if (scrappings.Length > 1)
+                        if (scrappings.Length > 1 && !String.IsNullOrWhiteSpace(scrappings[1]))
                         {
                             president.Party = scrappings[1].Trim();
                         }
