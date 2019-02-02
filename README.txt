@@ -1,4 +1,4 @@
-1/31/2019 53rd commit 
-This fixes a bug in which a sanity check runs against a null party and an exception is thrown inappropriately while also refining the sanity checks in general. What is more, going forward empty string party names will not come back from readings from the token flat file and instead these circumstances will dictate a null value for a party. 
+2/1/2019 54th commit 
+This is a minor aesthetic tweak of the list at the Materials example where I move a button from the right of list to the left of the list. It looks better when the list is less wide. 
 
 There are really two apps here. An Angular app at \src\GroverClevelandHopscotch.UserInterface\src\ running at http://localhost:4200/ will try to crosstalk with a REST API app run from the Visual Studio 2017 solution at \src\GroverClevelandHopscotch.sln at http://localhost:58220/ and that means that http://localhost:58220/ has to exist in a configuration file somewhere right? That file is at \src\GroverClevelandHopscotch.UserInterface\src\configuration.ts should you need to change it. Otherwise there should be little to configure. There is no database or anything like that. There is a flat file at \src\GroverClevelandHopscotch.Infrastructure\BackingStore.csv that is my pseudodatabase. Don't put silly permission restrictions on it please. Enjoy.

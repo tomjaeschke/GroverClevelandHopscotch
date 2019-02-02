@@ -1,4 +1,5 @@
 <div id="outerWrapper">
+	<button id="add" (click)="openModal()">+</button>
     <div id="innerWrapper">
 		<table mat-table class="lessons-table mat-elevation-z8" [dataSource]="dataSource">
 			<ng-container matColumnDef="Name">
@@ -18,6 +19,5 @@
 		</table>
 		<mat-paginator [pageSizeOptions]="[10]" showFirstLastButtons></mat-paginator>
 	</div>
-	<button id="add" (click)="openModal()">+</button>
 	<div id="clearBoth"></div>
 </div>
