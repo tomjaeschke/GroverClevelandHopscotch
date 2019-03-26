@@ -32,11 +32,11 @@ namespace GroverClevelandHopscotch.Infrastructure.Dependencies
             counter = 0;
             foreach (string scrapping in scrappings)
             {
-                if (scrapping.IndexOf("Your public IP address:") > -1)
+                if (scrapping.IndexOf("Your public IP address") > -1)
                 {
                     return scrappings[counter + 2].Split("<".ToCharArray())[0];
                 }
-                if (scrapping.IndexOf("Your IP address:") > -1)
+                if (scrapping.IndexOf("Your IP address") > -1)
                 {
                     return scrappings[counter + 2].Split("<".ToCharArray())[0];
                 }
