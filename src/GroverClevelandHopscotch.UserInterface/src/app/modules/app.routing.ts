@@ -5,6 +5,7 @@ import { HomeComponent }  from '../components/home.component';
 import { ListComponent }  from '../components/list.component';
 import { ReactiveFormsComponent } from '../components/reactiveForms.component';
 import { SuperSimpleFormComponent } from '../components/superSimpleForm.component';
+import { StoreExampleComponent } from '../components/storeExample.component';
 import { MaterialsListComponent } from '../components/materialsList.component';
 const appRoutes: Routes = [
   {
@@ -27,6 +28,10 @@ const appRoutes: Routes = [
   {
     path: 'simple',
     component: SuperSimpleFormComponent
+  },
+  {
+    path: 'store',
+    component: StoreExampleComponent
   },
   {
     path: 'materials-list',
