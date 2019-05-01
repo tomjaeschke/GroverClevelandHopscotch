@@ -1,6 +1,5 @@
-article {
-    padding: 10px;
-}
-span {
-    font-style: italic;
+#wrapper {
+    width: 530px;
+    height: 530px;
+    margin: 30px 0 0 30px;
 }

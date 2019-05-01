@@ -18,6 +18,8 @@ import { ListComponent } from '../components/list.component';
 import { ReactiveFormsComponent } from '../components/reactiveForms.component';
 import { SuperSimpleFormComponent } from '../components/superSimpleForm.component';
 import { StoreExampleComponent } from '../components/storeExample.component';
+import { StoreExampleComponentEdit } from '../components/storeExampleEdit.component';
+import { StoreExampleComponentInfo } from '../components/storeExampleInfo.component';
 import { IpComponent } from '../components/ip.component';
 import { IpContract } from '../contracts/ip.contract';
 import { IpService } from '../services/ip.service';
@@ -65,6 +67,8 @@ import { ValidationService } from '../services/validation.service';
 		ReactiveFormsComponent,
 		SuperSimpleFormComponent,
 		StoreExampleComponent,
+		StoreExampleComponentEdit,
+		StoreExampleComponentInfo,
 		MaterialsListComponent,
 		ModalComponent
 	],

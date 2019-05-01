@@ -1,0 +1,67 @@
+button {
+    font-family: Georgia, 'Times New Roman', Times serif;
+    font-size: 13px;
+    background: none;
+    border: none;
+    color: #0000FF;
+    cursor: pointer;
+    height: 14px;
+    line-height: 14px;
+}
+button:link {
+    color: #0000FF;
+}
+button:visited {
+    color: #0000FF;
+}
+button:focus {
+    color: #000000;
+}
+button:hover {
+    color: #000000;
+}
+button:active {
+    color: #0000FF;
+}
+#edit-bottom {
+    height: 14px;
+    width: 250px;
+    border-top: 1px solid #e6e6e6;
+}
+#edit-middle {
+    height: 500px;
+    width: 250px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+#edit-top {
+    height: 14px;
+    width: 250px;
+    border-bottom: 1px solid #e6e6e6;
+}
+#edit-wrapper {
+    background-color: #f1f1f1;
+    height: 530px;
+    float: left;
+    width: 250px;
+    overflow: hidden;
+}
+.line-item {
+    width: 250px;
+    height: 10px;
+}
+.line-left {
+    width: 30px;
+    border-top: 1px solid #e6e6e6;
+    border-bottom: 1px solid #e6e6e6;
+    height: 8px;
+    float: right;
+}
+.line-right {
+    width: 220px;
+    border-top: 1px solid #e6e6e6;
+    border-bottom: 1px solid #e6e6e6;
+    height: 8px;
+    float: left;
+    overflow: hidden;
+}

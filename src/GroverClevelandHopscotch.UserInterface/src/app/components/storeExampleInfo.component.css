@@ -1,0 +1,23 @@
+#info-bottom {
+    height: 14px;
+    width: 250px;
+    border-top: 1px solid #e6e6e6;
+}
+#info-middle {
+    height: 500px;
+    width: 250px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+#info-top {
+    height: 14px;
+    width: 250px;
+    border-bottom: 1px solid #e6e6e6;
+}
+#info-wrapper {
+    background-color: #f1f1f1;
+    height: 530px;
+    float: right;
+    width: 250px;
+    overflow: hidden;
+}
