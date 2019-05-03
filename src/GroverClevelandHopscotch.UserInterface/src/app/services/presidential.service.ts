@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Configuration } from '../../configuration';
+import { environment } from '../../environments/environment';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { HttpClient } from '@angular/common/http';
 import { President } from '../models/president.model';
@@ -9,8 +9,8 @@ import { PresidentialContract } from '../contracts/presidential.contract';
 export class PresidentialService implements PresidentialContract {
     private route: string;
     
-    constructor(private http: Http, private httpClient: HttpClient, private configuration: Configuration) {
-        this.route = this.configuration.routeToApi + "api/president/";
+    constructor(private http: Http, private httpClient: HttpClient) {
+        this.route = environment.routeToApi + "api/president/";
     }
 
     addPresident(president: President, successAct: (president: President) => void, errorAct: (errorCode: number, errorMessage: string) => void):void {

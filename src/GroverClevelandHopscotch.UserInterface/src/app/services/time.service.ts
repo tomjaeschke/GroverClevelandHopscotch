@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Configuration } from '../../configuration';
+import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { TimeMessage } from '../models/timeMessage.model';
 import { TimeContract } from '../contracts/time.contract';
 @Injectable()
 export class TimeService implements TimeContract {
-    constructor(private httpClient: HttpClient, private configuration: Configuration) { }
+    constructor(private httpClient: HttpClient) { }
 
     getTime():Observable<TimeMessage>{
-        let route: string = this.configuration.routeToApi + "api/clock";
+        let route: string = environment.routeToApi + "api/clock";
         return this.httpClient.get<TimeMessage>(route,{});
     }
 }
