@@ -1,4 +1,4 @@
-5/2/2019 60th commit 
-I am starting to set up the folder structure for the store. I am hopeful that I may use a preexisting model without issue. 
+5/3/2019 61st commit 
+I am adding what I believe is the central actor to the NGRX store. This continues a general build out in that direction. 
 
 An Angular 6 app kept at \src\GroverClevelandHopscotch.UserInterface\src\ and running at http://localhost:4200/ will try to crosstalk with a .NET Core REST API app run from the Visual Studio 2017 solution at \src\GroverClevelandHopscotch.sln which uses http://localhost:58220/ as its URL. So the big thing to take away from this help file is that there are two apps here. I have put them together in the same GitHub repo (which isn't really a good practice) in the name of making things easier on you. Along such keep-it-simple lines, there should also be nothing that needs configuration. There is not a database to set up or anything like that. Also, I've experimented with using Visual Studio 2019 instead of Visual Studio 2017 and there seems to be no consequences therein. Enjoy.
