@@ -1,4 +1,4 @@
-5/3/2019 61st commit 
-I am adding what I believe is the central actor to the NGRX store. This continues a general build out in that direction. 
+5/4/2019 62nd commit 
+I'm going to back off of my idea to have NGRX store integration for the moment. I would have to upgrade to Angular 7 and I don't want to just yet. 
 
 An Angular 6 app kept at \src\GroverClevelandHopscotch.UserInterface\src\ and running at http://localhost:4200/ will try to crosstalk with a .NET Core REST API app run from the Visual Studio 2017 solution at \src\GroverClevelandHopscotch.sln which uses http://localhost:58220/ as its URL. So the big thing to take away from this help file is that there are two apps here. I have put them together in the same GitHub repo (which isn't really a good practice) in the name of making things easier on you. Along such keep-it-simple lines, there should also be nothing that needs configuration. There is not a database to set up or anything like that. Also, I've experimented with using Visual Studio 2019 instead of Visual Studio 2017 and there seems to be no consequences therein. Enjoy.

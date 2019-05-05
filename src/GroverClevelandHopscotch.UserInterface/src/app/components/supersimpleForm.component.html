@@ -14,7 +14,7 @@
             <input [(ngModel)]="president.Name" />
         </td>
         <td>
-            <select [(ngModel)]="president.Party">
+            <select>
                 <ng-container *ngFor="let party of parties">
                     <option *ngIf="(president.Party + '').toLowerCase().trim() !== (party + '').toLowerCase().trim()" [value]="party ? party : ''">{{party}}</option>
                     <option *ngIf="(president.Party + '').toLowerCase().trim() === (party + '').toLowerCase().trim()" [value]="party ? party : ''" selected>{{party}}</option>
