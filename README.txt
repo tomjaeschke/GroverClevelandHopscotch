@@ -1,4 +1,4 @@
-5/6/2019 63rd commit 
-I am starting to set up a scenario in which a smart component feeds dumb components in the draggable example. I am handing into one component as an input a list of presidents. 
+6/2/2019 64th commit 
+These changes are really just some CSS and aesthetics tweaks. I am experimenting with tiny text. 
 
 An Angular 6 app kept at \src\GroverClevelandHopscotch.UserInterface\src\ and running at http://localhost:4200/ will try to crosstalk with a .NET Core REST API app run from the Visual Studio 2017 solution at \src\GroverClevelandHopscotch.sln which uses http://localhost:58220/ as its URL. So the big thing to take away from this help file is that there are two apps here. I have put them together in the same GitHub repo (which isn't really a good practice) in the name of making things easier on you. Along such keep-it-simple lines, there should also be nothing that needs configuration. There is not a database to set up or anything like that. Also, I've experimented with using Visual Studio 2019 instead of Visual Studio 2017 and there seems to be no consequences therein. Enjoy.

@@ -6,15 +6,15 @@ import { President } from '../models/president.model';
     styleUrls:  ['./storeExampleEdit.component.css']
 })
 export class StoreExampleComponentEdit {
-    @Input('presidents') presidents:Array<President>;
-
-    public startDrag(event: any){
-        console.log('start');
-        console.log(event);
-    }
+    @Input('presidents') presidents:Array<President>;   
 
     public endDrag(event: any){
         console.log('end');
         console.log(event);
     }
+
+    public startDrag(event: any){
+        console.log('start');
+        console.log(event);
+    }  
 }

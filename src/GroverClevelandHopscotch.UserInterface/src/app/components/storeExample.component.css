@@ -1,5 +1,62 @@
+#bottomArt {
+    width: 500px;
+    height: 80px;
+    padding-top: 15px;
+}
+#bottomImage {
+    float: left;
+    width: 70px;
+    height: 60px;
+    background-image: url("../../assets/GroverCleveland.png");
+    background-position: -259px -92px;
+    -ms-transform: rotate(208deg);
+    -webkit-transform: rotate(208deg);
+    transform: rotate(208deg);
+    margin-left: 258px;
+}
+#centerBar {
+    background-color: #0000FF;
+    width: 4px;
+    height: 568px;
+    margin-left: 293px;
+    margin-top: -642px;
+    z-index: 1000;
+}
+#innerBar {
+    background-color: #0000FF;
+    width: 4px;
+    height: 30px;
+    -ms-transform: rotate(-207deg);
+    -webkit-transform: rotate(-207deg);
+    transform: rotate(-207deg);
+    margin-left: 36px;
+    margin-top: 24px;
+}
+#topArt {
+    height: 17px;
+    width: 284px;
+    padding-top: 13px;
+    padding-left: 153px;
+}
+#topArtLeft {
+    height: 13px;
+    width: 4px;
+    background-color: #0000FF;
+    float: left;
+}
+#topArtRight {
+    height: 13px;
+    width: 4px;
+    background-color: #0000FF;
+    float: right;
+}
+#topArtTop {
+    height: 4px;
+    width: 284px;
+    background-color: #0000FF;
+}
 #wrapper {
     width: 530px;
     height: 530px;
-    margin: 30px 0 0 30px;
+    margin: 0 0 0 30px;
 }

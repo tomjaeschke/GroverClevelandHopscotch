@@ -49,19 +49,26 @@ button:active {
 .line-item {
     width: 250px;
     height: 10px;
+    cursor: default;
+}
+.line-item:active {
+    cursor: default;
 }
 .line-left {
     width: 30px;
     border-top: 1px solid #e6e6e6;
     border-bottom: 1px solid #e6e6e6;
     height: 8px;
-    float: right;
+    float: left;
 }
 .line-right {
     width: 220px;
     border-top: 1px solid #e6e6e6;
     border-bottom: 1px solid #e6e6e6;
     height: 8px;
-    float: left;
+    float: right;
+    overflow: hidden;
+    font-size: 8px;
+    line-height: 8px;
     overflow: hidden;
 }

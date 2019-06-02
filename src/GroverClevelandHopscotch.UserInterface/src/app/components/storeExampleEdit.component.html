@@ -3,9 +3,9 @@
     
     </div>
     <div id="edit-middle">
-        <div class="line-item" draggable="true" (dragstart)="startDrag($event)" (dragend)="endDrag($event)"  *ngFor="let president of presidents">
-                <div class="line-left"></div>
-                <div class="line-right"></div>
+        <div class="line-item" *ngFor="let president of presidents">
+            <div class="line-left"></div>
+            <div class="line-right" draggable="true"  (dragend)="endDrag($event)" (dragstart)="startDrag($event)">{{president.Name}}</div>
         </div>
     </div>
     <div id="edit-bottom">
