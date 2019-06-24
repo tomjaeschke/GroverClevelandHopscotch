@@ -21,3 +21,32 @@
     width: 250px;
     overflow: hidden;
 }
+.line-item {
+    width: 250px;
+    height: 10px;
+    cursor: default;
+}
+.line-item:active {
+    cursor: default;
+}
+.line-left {
+    width: 28px;
+    border-top: 1px solid #e6e6e6;
+    border-bottom: 1px solid #e6e6e6;
+    height: 8px;
+    float: left;
+    font-size: 8px;
+    line-height: 8px;
+    overflow: hidden;
+    text-align: right;
+}
+.line-right {
+    width: 220px;
+    border-top: 1px solid #e6e6e6;
+    border-bottom: 1px solid #e6e6e6;
+    height: 8px;
+    float: right;
+    font-size: 8px;
+    line-height: 8px;
+    overflow: hidden; 
+}

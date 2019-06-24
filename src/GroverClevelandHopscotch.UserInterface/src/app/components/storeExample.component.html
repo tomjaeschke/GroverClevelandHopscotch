@@ -4,8 +4,8 @@
     <div id="topArtRight"></div>
 </div>
 <div id="wrapper">
-    <store-edit [presidents]="presidents"></store-edit>
-    <store-info></store-info>
+    <store-edit [presidents]="presidents" (writeRecords)="writeRecords()"></store-edit>
+    <store-info [presidentsPlus]="presidentsPlus"></store-info>
 </div>
 <div id="bottomArt">
     <div id="bottomImage">  

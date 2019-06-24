@@ -1,11 +1,14 @@
 <div id="info-wrapper">
     <div id="info-top">
-    
+        
     </div>
     <div id="info-middle">
-    
+        <div class="line-item" *ngFor="let president of presidentsPlus; let i = index;">
+            <div class="line-left">{{i + 1}}.</div>
+            <div class="line-right">{{president.Name}}</div>
+        </div>
     </div>
     <div id="info-bottom">
-    
+        
     </div>
 </div>

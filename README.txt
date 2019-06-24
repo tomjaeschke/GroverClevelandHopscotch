@@ -1,4 +1,4 @@
-6/2/2019 64th commit 
-These changes are really just some CSS and aesthetics tweaks. I am experimenting with tiny text. 
+6/23/2019 65th commit 
+I have built out most of the interface for the draggable example. I still cannot figure out how to restrain a selection of many draggable elements to limit the number to just one item. 
 
 An Angular 6 app kept at \src\GroverClevelandHopscotch.UserInterface\src\ and running at http://localhost:4200/ will try to crosstalk with a .NET Core REST API app run from the Visual Studio 2017 solution at \src\GroverClevelandHopscotch.sln which uses http://localhost:58220/ as its URL. So the big thing to take away from this help file is that there are two apps here. I have put them together in the same GitHub repo (which isn't really a good practice) in the name of making things easier on you. Along such keep-it-simple lines, there should also be nothing that needs configuration. There is not a database to set up or anything like that. Also, I've experimented with using Visual Studio 2019 instead of Visual Studio 2017 and there seems to be no consequences therein. Enjoy.
