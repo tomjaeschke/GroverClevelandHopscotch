@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { President } from '../models/president.model';
+import { DumbComponentToSmartComponentDto } from '../models/dumbComponentToSmartComponentDto.model';
 @Component({
     selector: 'store-edit',
     templateUrl: './storeExampleEdit.component.html',
@@ -7,25 +8,29 @@ import { President } from '../models/president.model';
 })
 export class StoreExampleComponentEdit {
     @Input('presidents') presidents:Array<President>;
-    @Output('writeRecords') writeRecords = new EventEmitter<any>();
+    @Output('alterNonconsecutiveness') alterNonconsecutiveness = new EventEmitter<President>();
+    @Output('reorderRecords') reorderRecords = new EventEmitter<DumbComponentToSmartComponentDto>();
+    @Output('writeRecords') writeRecords = new EventEmitter<void>();
     public whereTheDraggingStarted: number;
-    public presidentWhereTheDraggingStarted: President;
 
     constructor(){
         this.whereTheDraggingStarted = 0;
     }
 
     public changeNonconsecutiveness(president: President) : void {
-        
+        this.alterNonconsecutiveness.emit(president);
     }
 
     public endDrag(event: any) : void {
-        let name = event.srcElement.data;
-        if (!name) name = event.srcElement.innerHTML;
+        let dto:DumbComponentToSmartComponentDto = new DumbComponentToSmartComponentDto();
+        dto.Name = event.srcElement.data;
+        if (!dto.Name) dto.Name = event.srcElement.innerHTML;
+        dto.Start = this.whereTheDraggingStarted;
+        dto.Finish = event.offsetY;
+        this.reorderRecords.emit(dto);
     }
 
     public startDrag(event: any, president: President) : void {
-        this.presidentWhereTheDraggingStarted = president;
         this.whereTheDraggingStarted = event.offsetY;
     }
 

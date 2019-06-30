@@ -22,6 +22,24 @@ describe('PresidentialSorterModule (isolated)', () => {
         startingList = [groverCleveland,benjaminHarrison,williamMcKinley];
     });
 
+    describe('Drag', ()=> {
+        it('drag down should behave as expected', fakeAsync(()=> {
+            let endList: Array<President> = PresidentialSorterModule.Drag(13, 2, "Grover Cleveland", startingList);
+            expect(endList.length).toBe(3);
+            expect(endList[0].Name).toBe("Benjamin Harrison");
+            expect(endList[1].Name).toBe("Grover Cleveland");
+            expect(endList[2].Name).toBe("William McKinley");
+        }));
+
+        it('drag up should behave as expected', fakeAsync(()=> {
+            let endList: Array<President> = PresidentialSorterModule.Drag(-13, 2, "William McKinley", startingList);
+            expect(endList.length).toBe(3);
+            expect(endList[0].Name).toBe("Grover Cleveland");
+            expect(endList[1].Name).toBe("William McKinley");
+            expect(endList[2].Name).toBe("Benjamin Harrison");
+        }));
+    });
+
     describe('Sort', ()=> {
         it('simple sort should behave as expected', fakeAsync(()=> {
             let endList: Array<PresidentPlus> = PresidentialSorterModule.Sort(startingList);
@@ -92,6 +110,6 @@ describe('PresidentialSorterModule (isolated)', () => {
             expect(endList[4].Positions.length).toBe(1);
             expect(endList[4].Positions[0]).toBe(5);
             expect(endList[4].IsCurrentPresident).toBe(true);
-        }));
+        })); 
     });
 });

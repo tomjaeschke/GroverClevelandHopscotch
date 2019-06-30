@@ -43,6 +43,65 @@ export module PresidentialSorterModule {
         }
         return parties;
     }
+
+    export function Drag(stop:number, go:number, who:string, presidents:Array<President>):Array<President> {
+        let amountOfMovement:number = 0
+        if (stop < 0) amountOfMovement = Math.round((stop+go)/10);
+        if (stop > 0) amountOfMovement = Math.round((stop-go)/10);
+        if (amountOfMovement === 0) return presidents;   
+        let counter:number = 0;
+        let originalPosition:number = 0;      
+        presidents.forEach((president:President) => {
+            counter++;
+            if (president.Name === who) {
+                originalPosition = counter;
+            }
+        });
+        if (originalPosition === 0) return presidents;       
+        let rearrangementOfList:Array<President> = [];
+        counter = 0;
+        let newPosition:number = originalPosition+amountOfMovement;
+        if (amountOfMovement < 0) {
+            if (newPosition < 2) {
+                rearrangementOfList.push(presidents[originalPosition-1]);
+                presidents.forEach((president:President) => {               
+                    if (president.Name !== who) {
+                        rearrangementOfList.push(president);
+                    }
+                });
+            } else {
+                presidents.forEach((president:President) => {                               
+                    counter++;
+                    if(newPosition == counter) {
+                        rearrangementOfList.push(presidents[originalPosition-1]);
+                    }    
+                    if (president.Name !== who) {
+                        rearrangementOfList.push(president);
+                    }                 
+                });
+            }
+        } else {
+            if (newPosition > (presidents.length-1)) {              
+                presidents.forEach((president:President) => {               
+                    if (president.Name !== who) {
+                        rearrangementOfList.push(president);
+                    }
+                });
+                rearrangementOfList.push(presidents[originalPosition-1]);
+            } else {
+                presidents.forEach((president:President) => {                               
+                    counter++;
+                    if (president.Name !== who) {
+                        rearrangementOfList.push(president);
+                    }
+                    if(newPosition == counter) {
+                        rearrangementOfList.push(presidents[originalPosition-1]);
+                    }        
+                });
+            }
+        }
+        return rearrangementOfList;
+    }
     
     export function SanityCheckName(presidents:Array<President>, validationRules:ValidationRules, onSuccess:(presidents:Array<President>)=>void):void{
         let sortedPresidents = new Array<President>();

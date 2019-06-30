@@ -4,7 +4,7 @@
     <div id="topArtRight"></div>
 </div>
 <div id="wrapper">
-    <store-edit [presidents]="presidents" (writeRecords)="writeRecords()"></store-edit>
+    <store-edit [presidents]="presidents" (alterNonconsecutiveness)="alterNonconsecutiveness($event)" (reorderRecords)="reorderRecords($event)" (writeRecords)="writeRecords()"></store-edit>
     <store-info [presidentsPlus]="presidentsPlus"></store-info>
 </div>
 <div id="bottomArt">
