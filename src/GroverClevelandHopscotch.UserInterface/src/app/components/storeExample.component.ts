@@ -27,7 +27,12 @@ export class StoreExampleComponent implements OnInit {
     constructor(public presidentialContract : PresidentialContract) { }
 
     alterNonconsecutiveness(president: President): void {
-        
+        this.presidents.forEach(p => {
+            if (president.Name === p.Name) {
+                p.HasNonconsecutiveTerms = !p.HasNonconsecutiveTerms;
+            }
+        });
+        this.presidentsPlus = PresidentialSorterModule.Sort(this.presidents);
     }
 
     reorderRecords(dto: DumbComponentToSmartComponentDto): void {
@@ -36,6 +41,12 @@ export class StoreExampleComponent implements OnInit {
     }
 
     writeRecords(): void {
-        
+        this.presidentialContract.setPresidents(this.presidents).toPromise().then(
+            function() {
+                alert('Recognizing the dignity of labor and the fact that honor lies in honest toil, you have rewritten the flat file.');
+            },
+            function(error){
+                console.log(error);
+            });
     }
 }
