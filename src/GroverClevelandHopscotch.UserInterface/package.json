@@ -29,7 +29,7 @@
     "@ngrx/store-devtools": "^7.4.0",
     "core-js": "^2.5.4",
     "ngrx": "^2.0.1",
-    "npm": "^6.4.1",
+    "npm": "^6.13.4",
     "rxjs": "^6.2.1",
     "rxjs-compat": "^6.2.1",
     "store": "^2.0.12",
